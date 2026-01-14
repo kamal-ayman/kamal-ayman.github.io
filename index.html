@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamal Ayman | Flutter Developer</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Stylesheets - Modular Architecture -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/skills.css">
+    <link rel="stylesheet" href="styles/packages.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <!-- External Libraries -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
@@ -36,6 +48,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -315,13 +328,33 @@
         </div>
     </section>
 
-
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-box-open"></i>
+                    Open Source
+                </span>
+            </div>
+            <h2 class="section-title">
+                <span class="title-number">03.</span> My Packages
+            </h2>
+            <p class="section-subtitle">
+                Flutter packages I've created and published on pub.dev to help
+                the developer community.
+            </p>
+            <div class="packages-grid" id="packages-grid">
+                <!-- Packages will be dynamically rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-number">03.</span> Get In Touch
+                <span class="title-number">04.</span> Get In Touch
             </h2>
             <p class="section-subtitle">
                 Have a project in mind or want to collaborate? Feel free to
@@ -355,10 +388,13 @@
                 </div>
                 <p>Designed & Built by Kamal Ayman</p>
                 <div class="footer-social">
-                    <a href="https://github.com/kamal-ayman" target="_blank"><i
-                            class="fab fa-github"></i></a>
+                    <a href="https://github.com/kamal-ayman" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
                     <a href="https://linkedin.com/in/kamal-ayman"
-                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
                 <p class="copyright">&copy; 2024 Kamal Ayman. All rights
                     reserved.</p>
@@ -371,7 +407,11 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <script src="script.js"></script>
+    <!-- Scripts - Modular Architecture -->
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/hero.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/packages.js"></script>
 </body>
 
 </html>

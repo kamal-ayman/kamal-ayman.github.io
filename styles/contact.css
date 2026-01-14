@@ -1,0 +1,19 @@
+/* ===== CONTACT SECTION ===== */
+.contact {
+    background: var(--bg-secondary);
+    text-align: center;
+}
+
+.contact-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contact-cta .btn {
+    display: inline-flex;
+}
