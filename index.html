@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamal Ayman | Flutter Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="flutter-logo">
+                <i class="fab fa-flutter"></i>
+            </div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                KA
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="greeting">Hello, I'm</p>
+                <h1 class="name">Kamal Ayman</h1>
+                <div class="typing-container">
+                    <span class="static-text">I'm a </span>
+                    <span class="typed-text" id="typed-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Crafting beautiful, high-performance mobile applications with Flutter. 
+                    Passionate about clean code, great UI/UX, and open source.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/kamal-ayman" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/kamal-ayman" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/kamal_ayman" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://pub.dev/publishers/kamalayman.is-a.dev" target="_blank" class="social-link">
+                        <i class="fas fa-box"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="https://github.com/kamal-ayman.png" alt="Kamal Ayman">
+                    <div class="image-border"></div>
+                    <div class="flutter-badge">
+                        <i class="fab fa-flutter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span> About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="file-name">developer.dart</span>
+                        </div>
+                        <pre class="code-content">
+<span class="keyword">class</span> <span class="class-name">Developer</span> {
+  <span class="keyword">final</span> String name = <span class="string">"Kamal Ayman"</span>;
+  <span class="keyword">final</span> String role = <span class="string">"Flutter Developer"</span>;
+  <span class="keyword">final</span> List&lt;String&gt; skills = [
+    <span class="string">"Flutter"</span>,
+    <span class="string">"Dart"</span>,
+    <span class="string">"Firebase"</span>,
+    <span class="string">"REST APIs"</span>,
+  ];
+
+  <span class="keyword">void</span> <span class="function">buildAmazingApps</span>() {
+    <span class="keyword">while</span>(true) {
+      code();
+      coffee();
+      repeat();
+    }
+  }
+}</pre>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a passionate <span class="highlight">Flutter Developer</span> who loves building 
+                        beautiful, functional, and user-friendly mobile applications. With a strong foundation 
+                        in Dart and the Flutter framework, I create cross-platform apps that deliver exceptional 
+                        user experiences.
+                    </p>
+                    <p>
+                        My journey in mobile development started with a curiosity about how apps work, 
+                        and it has evolved into a deep passion for crafting elegant solutions to complex problems. 
+                        I believe in writing <span class="highlight">clean, maintainable code</span> and 
+                        following best practices.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me contributing to open source projects, 
+                        learning new technologies, or sharing knowledge with the developer community.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="20">0</span>+
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="5">0</span>+
+                            <span class="stat-label">Packages</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="3">0</span>+
+                            <span class="stat-label">Years Exp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span> Skills & Technologies
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Flutter</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Dart</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Android (Kotlin)</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend & Database</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Firebase</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>REST APIs</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>SQLite / Hive</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Git & GitHub</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>CI/CD</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Figma</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tech-icons">
+                <div class="tech-icon" data-tooltip="Flutter">
+                    <i class="fab fa-flutter"></i>
+                </div>
+                <div class="tech-icon" data-tooltip="Dart">
+                    <img src="https://dart.dev/assets/img/logo/logo-white-text.svg" alt="Dart">
+                </div>
+                <div class="tech-icon" data-tooltip="Firebase">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="tech-icon" data-tooltip="Git">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+                <div class="tech-icon" data-tooltip="GitHub">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="tech-icon" data-tooltip="VS Code">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="tech-icon" data-tooltip="Android">
+                    <i class="fab fa-android"></i>
+                </div>
+                <div class="tech-icon" data-tooltip="iOS">
+                    <i class="fab fa-apple"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span> Featured Projects
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/1a1a2e/4ecca3?text=Project+1" alt="Project 1">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Mobile App</span>
+                        <h3>E-Commerce App</h3>
+                        <p>A full-featured e-commerce application with cart, payments, and order tracking.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                            <span>Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/1a1a2e/4ecca3?text=Project+2" alt="Project 2">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Mobile App</span>
+                        <h3>Task Manager</h3>
+                        <p>A productivity app to manage tasks, set reminders, and track progress.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Hive</span>
+                            <span>BLoC</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400/1a1a2e/4ecca3?text=Project+3" alt="Project 3">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Mobile App</span>
+                        <h3>Weather App</h3>
+                        <p>Beautiful weather app with animations, forecasts, and location-based data.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>REST API</span>
+                            <span>Riverpod</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="https://github.com/kamal-ayman" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-github"></i> View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span> Pub.dev Packages
+            </h2>
+            <p class="section-subtitle">Open source packages I've published to help the Flutter community</p>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <i class="fas fa-box"></i>
+                        <span class="package-version">v1.0.0</span>
+                    </div>
+                    <h3>awesome_package</h3>
+                    <p>A useful Flutter package that helps developers do amazing things faster.</p>
+                    <div class="package-stats">
+                        <span><i class="fas fa-download"></i> 1.2k</span>
+                        <span><i class="fas fa-star"></i> 95</span>
+                    </div>
+                    <a href="https://pub.dev" target="_blank" class="package-link">
+                        View on pub.dev <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="package-card">
+                    <div class="package-header">
+                        <i class="fas fa-box"></i>
+                        <span class="package-version">v2.1.0</span>
+                    </div>
+                    <h3>flutter_utils</h3>
+                    <p>Collection of utility functions and extensions for Flutter development.</p>
+                    <div class="package-stats">
+                        <span><i class="fas fa-download"></i> 800</span>
+                        <span><i class="fas fa-star"></i> 80</span>
+                    </div>
+                    <a href="https://pub.dev" target="_blank" class="package-link">
+                        View on pub.dev <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="package-card">
+                    <div class="package-header">
+                        <i class="fas fa-box"></i>
+                        <span class="package-version">v1.5.0</span>
+                    </div>
+                    <h3>easy_widgets</h3>
+                    <p>Pre-built customizable widgets to speed up your Flutter UI development.</p>
+                    <div class="package-stats">
+                        <span><i class="fas fa-download"></i> 500</span>
+                        <span><i class="fas fa-star"></i> 70</span>
+                    </div>
+                    <a href="https://pub.dev" target="_blank" class="package-link">
+                        View on pub.dev <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span> Get In Touch
+            </h2>
+            <p class="section-subtitle">
+                Have a project in mind or want to collaborate? Feel free to reach out!
+            </p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>kamal.ayman@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Cairo, Egypt</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Availability</h4>
+                            <p>Open for freelance projects</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    KA
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+                <p>Designed & Built by Kamal Ayman</p>
+                <div class="footer-social">
+                    <a href="https://github.com/kamal-ayman" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/kamal-ayman" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/kamal_ayman" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">&copy; 2024 Kamal Ayman. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#home" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
