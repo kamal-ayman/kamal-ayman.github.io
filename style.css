@@ -89,8 +89,17 @@ img {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
 }
 
 /* ===== NAVBAR ===== */
@@ -209,10 +218,25 @@ img {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.3; }
-    90% { opacity: 0.3; }
-    100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+
+    0%,
+    100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
 }
 
 .hero-content {
@@ -260,8 +284,16 @@ img {
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 .hero-description {
@@ -379,8 +411,13 @@ img {
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .flutter-badge {
@@ -401,8 +438,15 @@ img {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .scroll-down {
@@ -416,8 +460,15 @@ img {
 }
 
 @keyframes scrollDown {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
 }
 
 /* ===== SECTION STYLES ===== */
@@ -478,9 +529,17 @@ section {
     border-radius: 50%;
 }
 
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27ca40; }
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27ca40;
+}
 
 .file-name {
     margin-left: auto;
@@ -496,10 +555,21 @@ section {
     overflow-x: auto;
 }
 
-.keyword { color: #c792ea; }
-.class-name { color: #ffcb6b; }
-.string { color: #c3e88d; }
-.function { color: #82aaff; }
+.keyword {
+    color: #c792ea;
+}
+
+.class-name {
+    color: #ffcb6b;
+}
+
+.string {
+    color: #c3e88d;
+}
+
+.function {
+    color: #82aaff;
+}
 
 .about-text p {
     color: var(--text-secondary);
@@ -861,93 +931,11 @@ section {
     background: var(--bg-secondary);
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 60px;
-}
-
-.contact-info {
+.contact-cta {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.contact-item {
-    display: flex;
+    justify-content: center;
     gap: 20px;
-    align-items: flex-start;
-}
-
-.contact-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--bg-tertiary);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.contact-details h4 {
-    margin-bottom: 5px;
-}
-
-.contact-details p {
-    color: var(--text-secondary);
-}
-
-.contact-form {
-    background: var(--bg-tertiary);
-    padding: 40px;
-    border-radius: 15px;
-}
-
-.form-group {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px 20px;
-    background: var(--bg-secondary);
-    border: 2px solid transparent;
-    border-radius: 10px;
-    color: var(--text-primary);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.form-group label {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-    pointer-events: none;
-    transition: var(--transition);
-    display: none;
-}
-
-.form-group textarea ~ label {
-    top: 20px;
-    transform: none;
-}
-
-.contact-form .btn {
-    width: 100%;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* ===== FOOTER ===== */
@@ -1063,10 +1051,6 @@ section {
 
     .packages-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
     }
 }
 
