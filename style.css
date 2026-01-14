@@ -939,6 +939,11 @@ section {
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
+    margin: 0 auto;
+}
+
+.contact-cta .btn {
+    display: inline-flex;
 }
 
 /* ===== FOOTER ===== */
