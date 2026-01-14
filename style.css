@@ -929,6 +929,7 @@ section {
 /* ===== CONTACT SECTION ===== */
 .contact {
     background: var(--bg-secondary);
+    text-align: center;
 }
 
 .contact-cta {
