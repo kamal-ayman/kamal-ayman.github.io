@@ -3,7 +3,7 @@
    =================================================== */
 
 /* ─────────────────────────────────────────────────
-   LOADER
+   LOADER - Enhanced with More Animations
    ───────────────────────────────────────────────── */
 
 .loader {
@@ -27,39 +27,73 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-6);
+    gap: var(--space-8);
 }
 
 .loader-logo {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-brand);
     border-radius: var(--radius-2xl);
-    animation: pulse 1.5s var(--ease-smooth) infinite;
+    animation: loaderPulse 1.5s var(--ease-smooth) infinite,
+        loaderFloat 2s ease-in-out infinite;
+    position: relative;
+}
+
+.loader-logo::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-2xl);
+    opacity: 0.3;
+    filter: blur(20px);
+    animation: loaderGlow 1.5s ease-in-out infinite;
+}
+
+.loader-logo::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-2xl);
+    z-index: -1;
+    animation: loaderRotate 3s linear infinite;
+}
+
+/* Flutter SVG Icon */
+.loader-logo svg {
+    width: 50px;
+    height: 50px;
+    fill: var(--bg-base);
+    z-index: 1;
 }
 
 .loader-logo i {
     font-size: var(--text-4xl);
     color: var(--bg-base);
+    z-index: 1;
 }
 
 .loader-text {
     color: var(--text-secondary);
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    animation: loaderTextPulse 1.5s ease-in-out infinite;
 }
 
 .loader-bar {
     width: 200px;
-    height: 3px;
+    height: 4px;
     background: var(--bg-surface);
     border-radius: var(--radius-full);
     overflow: hidden;
+    position: relative;
 }
 
 .loader-bar::after {
@@ -69,7 +103,68 @@
     height: 100%;
     background: var(--gradient-brand);
     border-radius: var(--radius-full);
-    animation: loaderSlide 1.2s var(--ease-smooth) infinite;
+    animation: loaderSlide 1s var(--ease-smooth) infinite;
+    box-shadow: 0 0 20px var(--color-brand-primary);
+}
+
+@keyframes loaderPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes loaderFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.05);
+    }
+}
+
+@keyframes loaderGlow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes loaderRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loaderTextPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 @keyframes loaderSlide {
@@ -83,7 +178,7 @@
 }
 
 /* ─────────────────────────────────────────────────
-   NAVBAR
+   NAVBAR - Enhanced with Animations
    ───────────────────────────────────────────────── */
 
 .navbar {
@@ -96,6 +191,17 @@
     align-items: center;
     z-index: var(--z-sticky);
     transition: var(--transition-base);
+    animation: navbarSlideDown 0.8s var(--ease-out-expo) forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+@keyframes navbarSlideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navbar.scrolled {
@@ -103,6 +209,7 @@
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.3);
 }
 
 .nav-container {
@@ -115,23 +222,30 @@
     justify-content: space-between;
 }
 
-/* Logo */
+/* Logo with Gradient Animation */
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-1);
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     color: var(--text-primary);
     transition: var(--transition-fast);
+    position: relative;
 }
 
 .logo:hover {
     color: var(--text-primary);
+    transform: scale(1.05);
 }
 
 .logo-bracket {
     color: var(--color-brand-primary);
+    transition: var(--transition-fast);
+}
+
+.logo:hover .logo-bracket {
+    text-shadow: 0 0 20px var(--color-brand-primary);
 }
 
 .logo-text {
@@ -139,9 +253,23 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
 }
 
-/* Nav Links */
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Nav Links with Stagger Animation */
 .nav-links {
     display: flex;
     align-items: center;
@@ -155,6 +283,40 @@
     color: var(--text-secondary);
     padding-block: var(--space-2);
     transition: var(--transition-fast);
+    animation: navLinkFadeIn 0.5s var(--ease-out-expo) forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.nav-links li:nth-child(1) .nav-link {
+    animation-delay: 1.4s;
+}
+
+.nav-links li:nth-child(2) .nav-link {
+    animation-delay: 1.5s;
+}
+
+.nav-links li:nth-child(3) .nav-link {
+    animation-delay: 1.6s;
+}
+
+.nav-links li:nth-child(4) .nav-link {
+    animation-delay: 1.7s;
+}
+
+.nav-links li:nth-child(5) .nav-link {
+    animation-delay: 1.8s;
+}
+
+.nav-links li:nth-child(6) .nav-link {
+    animation-delay: 1.9s;
+}
+
+@keyframes navLinkFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .nav-link::after {
@@ -213,7 +375,7 @@
 }
 
 /* ─────────────────────────────────────────────────
-   BACK TO TOP
+   BACK TO TOP - Enhanced
    ───────────────────────────────────────────────── */
 
 .back-to-top {
@@ -231,32 +393,62 @@
     font-size: var(--text-lg);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.8);
     transition: var(--transition-base);
     z-index: var(--z-elevated);
     box-shadow: var(--shadow-glow);
 }
 
+.back-to-top::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-xl);
+    opacity: 0.3;
+    filter: blur(15px);
+    z-index: -1;
+    transition: var(--transition-base);
+}
+
 .back-to-top.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .back-to-top:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.1);
     box-shadow: var(--shadow-glow-intense);
     color: var(--bg-base);
 }
 
+.back-to-top:hover::before {
+    opacity: 0.5;
+    filter: blur(20px);
+}
+
 /* ─────────────────────────────────────────────────
-   FOOTER
+   FOOTER - Enhanced
    ───────────────────────────────────────────────── */
 
 .footer {
     background: var(--bg-elevated);
     border-top: 1px solid var(--glass-border);
     padding-block: var(--space-16);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: var(--gradient-brand);
 }
 
 .footer-content {
@@ -270,6 +462,11 @@
 .footer-logo {
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
+    transition: var(--transition-fast);
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
 }
 
 .footer-text {
@@ -301,6 +498,7 @@
     border-color: var(--color-brand-primary);
     color: var(--bg-base);
     transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
 }
 
 .footer-bottom {
@@ -391,4 +589,20 @@
 .divider--vertical {
     width: 1px;
     height: 100%;
+}
+
+/* ─────────────────────────────────────────────────
+   FLUTTER ICON SVG (Fallback)
+   ───────────────────────────────────────────────── */
+
+.flutter-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flutter-icon svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
 }

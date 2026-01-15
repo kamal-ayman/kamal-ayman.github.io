@@ -49,9 +49,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Icons - Using newer version for Flutter icon support -->
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheets - Modular Architecture -->
     <link rel="stylesheet" href="styles/variables.css">
@@ -73,7 +73,11 @@
     <div class="loader" id="loader" aria-hidden="true">
         <div class="loader-content">
             <div class="loader-logo">
-                <i class="fab fa-flutter"></i>
+                <!-- Flutter SVG Logo -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37l-.002-.001z" />
+                </svg>
             </div>
             <span class="loader-text">Loading</span>
             <div class="loader-bar"></div>
@@ -100,8 +104,6 @@
                             role="menuitem">About</a></li>
                     <li role="none"><a href="#skills" class="nav-link"
                             role="menuitem">Skills</a></li>
-                    <li role="none"><a href="#projects" class="nav-link"
-                            role="menuitem">Projects</a></li>
                     <li role="none"><a href="#packages" class="nav-link"
                             role="menuitem">Packages</a></li>
                     <li role="none"><a href="#contact" class="nav-link"
@@ -131,9 +133,9 @@
                     <h1 class="hero-name" id="hero-heading">Kamal Ayman</h1>
 
                     <div class="typing-container" aria-live="polite">
-                        <span class="static-text">I'm a </span>
-                        <span class="typed-text" id="typed-text"></span>
-                        <span class="cursor" aria-hidden="true">|</span>
+                        <span class="static-text">I'm a </span><span
+                            class="typed-text" id="typed-text"></span><span
+                            class="cursor" aria-hidden="true"></span>
                     </div>
 
                     <p class="hero-description">
@@ -181,7 +183,11 @@
                             loading="eager">
                         <div class="image-border" aria-hidden="true"></div>
                         <div class="flutter-badge" aria-hidden="true">
-                            <i class="fab fa-flutter"></i>
+                            <svg viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37l-.002-.001z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -463,7 +469,12 @@
 
                 <div class="tech-icons">
                     <div class="tech-icon" data-tooltip="Flutter">
-                        <i class="fab fa-flutter"></i>
+                        <svg viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor">
+                            <path
+                                d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37l-.002-.001z" />
+                        </svg>
                     </div>
                     <div class="tech-icon" data-tooltip="Firebase">
                         <i class="fas fa-fire"></i>
@@ -491,31 +502,6 @@
         </section>
 
         <!-- ============================================
-             PROJECTS SECTION
-             ============================================ -->
-        <section class="projects" id="projects"
-            aria-labelledby="projects-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">
-                        <i class="fas fa-rocket"></i>
-                        My Work
-                    </span>
-                    <h2 class="section-title" id="projects-heading">
-                        <span class="title-number">03.</span>Featured Projects
-                    </h2>
-                    <p class="section-subtitle">
-                        A selection of projects I've worked on
-                    </p>
-                </div>
-
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Projects will be dynamically rendered by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================
              PACKAGES SECTION
              ============================================ -->
         <section class="packages" id="packages"
@@ -527,7 +513,7 @@
                         Open Source
                     </span>
                     <h2 class="section-title" id="packages-heading">
-                        <span class="title-number">04.</span>Flutter Packages
+                        <span class="title-number">03.</span>Flutter Packages
                     </h2>
                     <p class="section-subtitle">
                         Open source Flutter packages I've created and published
@@ -553,17 +539,13 @@
                         Let's Connect
                     </span>
                     <h2 class="section-title" id="contact-heading">
-                        <span class="title-number">05.</span>Get In Touch
+                        <span class="title-number">04.</span>Get In Touch
                     </h2>
                     <p class="section-subtitle">
                         Have a project in mind or want to collaborate?
                         I'm always open to discussing new opportunities and
                         ideas.
                     </p>
-                </div>
-
-                <div class="contact-availability">
-                    <span>Available for freelance projects</span>
                 </div>
 
                 <div class="contact-cta">
@@ -620,9 +602,6 @@
                     <span class="logo-text">KA</span>
                     <span class="logo-bracket">/&gt;</span>
                 </div>
-                <p class="footer-text">Designed & Built with <span
-                        style="color: var(--color-brand-primary)">♥</span> by
-                    Kamal Ayman</p>
                 <div class="footer-social">
                     <a href="https://github.com/kamal-ayman" target="_blank"
                         rel="noopener noreferrer" aria-label="GitHub">

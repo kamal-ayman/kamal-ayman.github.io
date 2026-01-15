@@ -154,6 +154,13 @@
     position: relative;
 }
 
+.tech-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    transition: var(--transition-base);
+}
+
 .tech-icon img {
     width: 32px;
     height: 32px;
