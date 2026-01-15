@@ -96,7 +96,7 @@ const AnimationsController = {
                     }
                 });
             },
-            { threshold: 0.3 }
+            { threshold: 0.1 }
         );
 
         skillsObserver.observe(skillsSection);
@@ -117,50 +117,76 @@ const AnimationsController = {
      * Observe counter elements for animation
      */
     observeCounters() {
-        const aboutSection = document.getElementById('about');
-        if (!aboutSection) return;
+        const stats = document.querySelectorAll('.stat-number');
 
         const counterObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        this.animateCounters();
+                        this.animateCounter(entry.target);
                         counterObserver.unobserve(entry.target);
                     }
                 });
             },
-            { threshold: 0.5 }
+            {
+                threshold: 0,
+                rootMargin: '0px 0px 100px 0px'
+            }
         );
 
-        counterObserver.observe(aboutSection);
+        stats.forEach(stat => {
+            // Check if already visible on load (fallback)
+            const rect = stat.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                this.animateCounter(stat);
+            } else {
+                counterObserver.observe(stat);
+            }
+        });
     },
 
     /**
-     * Animate counter numbers
+     * Animate a single counter
+     * @param {HTMLElement} statElement 
      */
-    animateCounters() {
-        document.querySelectorAll('.stat-number').forEach(stat => {
-            const target = parseInt(stat.dataset.target);
-            const duration = 2000;
-            const steps = 60;
-            const increment = target / steps;
-            let current = 0;
-            let step = 0;
+    animateCounter(statElement) {
+        // Prevent double animation
+        if (statElement.classList.contains('animated')) return;
+        statElement.classList.add('animated');
 
-            const updateCounter = () => {
-                step++;
-                current = Math.min(target, Math.round(increment * step));
-                stat.textContent = current;
+        const target = parseInt(statElement.dataset.target);
+        if (target === 0) {
+            statElement.textContent = '0';
+            return;
+        }
 
-                if (step < steps) {
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    stat.textContent = target;
-                }
-            };
+        const duration = 2000;
+        const startTime = performance.now();
 
-            requestAnimationFrame(updateCounter);
-        });
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Ease out quart
+            const easeOut = 1 - Math.pow(1 - progress, 4);
+
+            // Use round to help small numbers appear sooner
+            let current = Math.round(easeOut * target);
+
+            // Boundary checks
+            if (current > target) current = target;
+            if (current < 0) current = 0;
+
+            statElement.textContent = current;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                statElement.textContent = target;
+            }
+        };
+
+        requestAnimationFrame(updateCounter);
     },
 
     /**
