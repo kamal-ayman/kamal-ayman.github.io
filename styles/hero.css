@@ -1,47 +1,70 @@
-/* ===== HERO SECTION ===== */
+/* ===================================================
+   HERO SECTION - Professional Landing
+   =================================================== */
+
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 100px 20px;
+    padding: calc(var(--navbar-height) + var(--space-12)) var(--space-6) var(--space-12);
     overflow: hidden;
 }
 
+/* Background Effects */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle,
+            hsla(161, 62%, 55%, 0.05) 0%,
+            transparent 60%);
+    pointer-events: none;
+}
+
+/* Particles Container */
 .hero-particles {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .particle {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--primary-color);
+    width: 4px;
+    height: 4px;
+    background: var(--color-brand-primary);
     border-radius: 50%;
-    opacity: 0.3;
-    animation: float 15s infinite;
+    opacity: 0.4;
+    animation: particleFloat 20s linear infinite;
 }
 
-@keyframes float {
-
-    0%,
-    100% {
+@keyframes particleFloat {
+    0% {
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
     }
 
     10% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
 
     90% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
 
     100% {
@@ -50,51 +73,81 @@
     }
 }
 
+/* Hero Content Layout */
 .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: var(--space-16);
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
+}
+
+/* Hero Text Content */
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
 }
 
 .greeting {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--color-brand-primary);
 }
 
-.name {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: var(--gradient-primary);
+.greeting::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-full);
+}
+
+.hero-name {
+    font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
+    font-weight: var(--font-bold);
+    line-height: 1.1;
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-block: var(--space-2);
 }
 
+/* Typing Effect */
 .typing-container {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xl);
     color: var(--text-secondary);
 }
 
+.static-text {
+    font-weight: var(--font-regular);
+}
+
 .typed-text {
-    color: var(--primary-color);
-    font-weight: 600;
+    font-weight: var(--font-semibold);
+    color: var(--color-brand-primary);
+    min-width: 280px;
 }
 
 .cursor {
-    color: var(--primary-color);
-    animation: blink 1s infinite;
+    display: inline-block;
+    color: var(--color-brand-primary);
+    font-weight: var(--font-light);
+    animation: cursorBlink 1s infinite;
 }
 
-@keyframes blink {
+@keyframes cursorBlink {
 
     0%,
     50% {
@@ -107,29 +160,40 @@
     }
 }
 
+/* Hero Description */
 .hero-description {
+    font-size: var(--text-lg);
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    line-height: var(--leading-relaxed);
     max-width: 500px;
 }
 
+/* Hero Buttons */
 .hero-buttons {
     display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
 }
 
+/* Social Links in Hero */
+.hero .social-links {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--glass-border);
+}
+
+/* Hero Image */
 .hero-image {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .image-wrapper {
     position: relative;
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
 }
 
 .image-wrapper img {
@@ -139,20 +203,32 @@
     border-radius: 50%;
     position: relative;
     z-index: 2;
+    border: 4px solid var(--bg-base);
+    box-shadow: var(--shadow-lg);
 }
 
+/* Animated Border Ring */
 .image-border {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 3px solid var(--primary-color);
+    inset: -12px;
+    border: 2px solid transparent;
     border-radius: 50%;
-    animation: rotate 20s linear infinite;
+    background:
+        linear-gradient(var(--bg-base), var(--bg-base)) padding-box,
+        var(--gradient-brand) border-box;
+    animation: rotateBorder 15s linear infinite;
 }
 
-@keyframes rotate {
+.image-border::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px dashed hsla(161, 62%, 55%, 0.3);
+    border-radius: 50%;
+    animation: rotateBorder 25s linear infinite reverse;
+}
+
+@keyframes rotateBorder {
     from {
         transform: rotate(0deg);
     }
@@ -162,46 +238,61 @@
     }
 }
 
+/* Flutter Badge */
 .flutter-badge {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     width: 70px;
     height: 70px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    color: var(--bg-primary);
+    justify-content: center;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-2xl);
     z-index: 3;
-    animation: bounce 2s ease-in-out infinite;
+    animation: badgeFloat 3s ease-in-out infinite;
+    box-shadow: var(--shadow-glow);
 }
 
-@keyframes bounce {
+.flutter-badge i {
+    font-size: var(--text-3xl);
+    color: var(--bg-base);
+}
+
+@keyframes badgeFloat {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px) rotate(5deg);
     }
 }
 
+/* Scroll Down Indicator */
 .scroll-down {
     position: absolute;
-    bottom: 30px;
+    bottom: var(--space-10);
     left: 50%;
     transform: translateX(-50%);
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    animation: scrollDown 2s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    animation: scrollBounce 2s ease-in-out infinite;
 }
 
-@keyframes scrollDown {
+.scroll-down i {
+    font-size: var(--text-xl);
+    color: var(--color-brand-primary);
+}
+
+@keyframes scrollBounce {
 
     0%,
     100% {
@@ -210,5 +301,41 @@
 
     50% {
         transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: hsla(120, 60%, 50%, 0.1);
+    border: 1px solid hsla(120, 60%, 50%, 0.3);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: hsl(120, 60%, 60%);
+}
+
+.status-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: hsl(120, 60%, 60%);
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
     }
 }

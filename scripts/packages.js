@@ -1,6 +1,7 @@
 /**
- * Packages Section - Animation Controller
- * Handles scroll-triggered animations and interactive effects for package cards
+ * Packages Section Controller
+ * Handles package data rendering and interactive effects
+ * @module PackagesController
  */
 
 // ===== PACKAGES DATA =====
@@ -32,29 +33,36 @@ const packagesData = [
     // Add more packages here as you create them
 ];
 
-// ===== PACKAGES RENDERER =====
+/**
+ * Packages Renderer Class
+ */
 class PackagesRenderer {
+    /**
+     * @param {string} containerId - ID of the container element
+     */
     constructor(containerId) {
         this.container = document.getElementById(containerId);
         this.packages = packagesData;
     }
 
     /**
-     * Renders a single package card
+     * Render a single package card
+     * @param {Object} pkg - Package data object
+     * @returns {string} HTML string
      */
     renderPackageCard(pkg) {
         const featuresHtml = pkg.features
             .slice(0, 5)
             .map(feature => `
                 <span class="package-feature">
-                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-check"></i>
                     ${feature}
                 </span>
             `).join('');
 
         return `
             <article class="package-card" data-package-id="${pkg.id}">
-                ${pkg.isNew ? '<div class="package-coming-soon">NEW</div>' : ''}
+                ${pkg.isNew ? '<div class="package-new-badge">NEW</div>' : ''}
                 
                 <div class="package-card-header">
                     <div class="package-header-content">
@@ -87,22 +95,27 @@ class PackagesRenderer {
                         <div class="package-stat">
                             <i class="fas fa-chart-line"></i>
                             <span class="package-stat-value">${pkg.stats.points}</span>
-                            <span class="package-stat-label">points</span>
+                            <span class="package-stat-label">pts</span>
                         </div>
                         <div class="package-stat">
                             <i class="fas fa-fire"></i>
                             <span class="package-stat-value">${pkg.stats.popularity}</span>
-                            <span class="package-stat-label">popular</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="package-card-footer">
-                    <a href="${pkg.links.pubDev}" target="_blank" rel="noopener noreferrer" class="package-link primary">
+                    <a href="${pkg.links.pubDev}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="package-link primary">
                         <i class="fas fa-external-link-alt"></i>
                         pub.dev
                     </a>
-                    <a href="${pkg.links.github}" target="_blank" rel="noopener noreferrer" class="package-link secondary">
+                    <a href="${pkg.links.github}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="package-link secondary">
                         <i class="fab fa-github"></i>
                         GitHub
                     </a>
@@ -112,7 +125,7 @@ class PackagesRenderer {
     }
 
     /**
-     * Renders all packages to the container
+     * Render all packages
      */
     render() {
         if (!this.container) {
@@ -136,98 +149,91 @@ class PackagesRenderer {
 
         this.container.innerHTML = packagesHtml;
 
-        // Initialize animations after rendering
+        // Initialize animations after render
         this.initAnimations();
     }
 
     /**
-     * Initializes scroll-triggered animations
+     * Initialize scroll-triggered animations
      */
     initAnimations() {
         const cards = this.container.querySelectorAll('.package-card');
 
-        const animationObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    animationObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
 
-        cards.forEach(card => {
-            animationObserver.observe(card);
-        });
+        cards.forEach(card => observer.observe(card));
     }
 }
 
-// ===== PACKAGES ANIMATION CONTROLLER =====
+/**
+ * Packages Animation Controller
+ * Handles interactive effects for package cards
+ */
 class PackagesAnimationController {
     constructor() {
-        this.packagesSection = document.getElementById('packages');
         this.initTiltEffect();
-        this.initHoverEffects();
     }
 
     /**
-     * Adds subtle 3D tilt effect on hover
+     * Add subtle 3D tilt effect on hover
      */
     initTiltEffect() {
+        // Check for reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
+
         const cards = document.querySelectorAll('.package-card');
 
         cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 30;
-                const rotateY = (centerX - x) / 30;
-
-                card.style.transform = `
-                    perspective(1000px) 
-                    rotateX(${rotateX}deg) 
-                    rotateY(${rotateY}deg) 
-                    translateY(-10px) 
-                    scale(1.02)
-                `;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-            });
+            card.addEventListener('mousemove', (e) => this.handleTilt(e, card));
+            card.addEventListener('mouseleave', () => this.resetTilt(card));
         });
     }
 
     /**
-     * Adds ripple effect on click
+     * Handle tilt effect on mouse move
+     * @param {MouseEvent} e - Mouse event
+     * @param {HTMLElement} card - Card element
      */
-    initHoverEffects() {
-        const links = document.querySelectorAll('.package-link');
+    handleTilt(e, card) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
+        const rotateX = (y - centerY) / 25;
+        const rotateY = (centerX - x) / 25;
 
-                const rect = link.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
+        card.style.transform = `
+            perspective(1000px) 
+            rotateX(${rotateX}deg) 
+            rotateY(${rotateY}deg) 
+            translateY(-10px) 
+            scale(1.02)
+        `;
+    }
 
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-
-                link.appendChild(ripple);
-
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
+    /**
+     * Reset tilt effect on mouse leave
+     * @param {HTMLElement} card - Card element
+     */
+    resetTilt(card) {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
     }
 }
 
@@ -237,13 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderer = new PackagesRenderer('packages-grid');
     renderer.render();
 
-    // Initialize animations (after a small delay to ensure cards are rendered)
+    // Initialize animations after a small delay
     setTimeout(() => {
         new PackagesAnimationController();
     }, 100);
 });
 
-// ===== EXPORT FOR POTENTIAL MODULE USE =====
+// Export for potential module use
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { PackagesRenderer, PackagesAnimationController, packagesData };
 }

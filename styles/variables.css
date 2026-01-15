@@ -1,29 +1,186 @@
-/* ===== ROOT VARIABLES ===== */
-/* Design tokens and CSS custom properties for consistent theming */
+/* ===================================================
+   DESIGN SYSTEM - CSS Custom Properties
+   Premium Portfolio Theme with Personal Branding
+   =================================================== */
 
 :root {
-    /* Primary Colors */
-    --primary-color: #4ecca3;
-    --secondary-color: #00d9ff;
+    /* ─────────────────────────────────────────────────
+       COLOR PALETTE - Refined Gradients & Accents
+       ───────────────────────────────────────────────── */
 
-    /* Background Colors */
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #12121a;
-    --bg-tertiary: #1a1a2e;
+    /* Primary Brand Colors */
+    --color-brand-primary: hsl(161, 62%, 55%);
+    /* Vibrant Teal */
+    --color-brand-secondary: hsl(191, 100%, 50%);
+    /* Electric Cyan */
+    --color-brand-accent: hsl(270, 70%, 65%);
+    /* Soft Purple */
 
-    /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --text-muted: #6c6c6c;
+    /* Background Hierarchy */
+    --bg-base: hsl(240, 15%, 4%);
+    /* Deep Space Black */
+    --bg-elevated: hsl(240, 12%, 7%);
+    /* Elevated Surface */
+    --bg-surface: hsl(240, 10%, 10%);
+    /* Card Background */
+    --bg-overlay: hsla(240, 15%, 4%, 0.9);
+    /* Modal Overlay */
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #4ecca3 0%, #00d9ff 100%);
+    /* Text Hierarchy */
+    --text-primary: hsl(0, 0%, 98%);
+    /* Pure White */
+    --text-secondary: hsl(220, 10%, 60%);
+    /* Muted Gray */
+    --text-tertiary: hsl(220, 10%, 45%);
+    /* Subtle Gray */
+    --text-accent: var(--color-brand-primary);
 
-    /* Shadows */
-    --shadow-primary: 0 10px 40px rgba(78, 204, 163, 0.2);
+    /* Gradient Definitions */
+    --gradient-brand: linear-gradient(135deg,
+            var(--color-brand-primary) 0%,
+            var(--color-brand-secondary) 100%);
+    --gradient-brand-vertical: linear-gradient(180deg,
+            var(--color-brand-primary) 0%,
+            var(--color-brand-secondary) 100%);
+    --gradient-glow: radial-gradient(circle at center,
+            hsla(161, 62%, 55%, 0.15) 0%,
+            transparent 70%);
+    --gradient-card: linear-gradient(145deg,
+            hsla(240, 12%, 12%, 0.8) 0%,
+            hsla(240, 15%, 6%, 0.95) 100%);
+    --gradient-mesh:
+        radial-gradient(at 40% 20%, hsla(161, 62%, 55%, 0.08) 0%, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(191, 100%, 50%, 0.06) 0%, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(270, 70%, 65%, 0.05) 0%, transparent 50%);
 
-    /* Transitions */
-    --transition: all 0.3s ease;
-    --transition-fast: all 0.15s ease;
-    --transition-slow: all 0.5s ease;
+    /* Glass Effects */
+    --glass-bg: hsla(240, 12%, 10%, 0.7);
+    --glass-border: hsla(0, 0%, 100%, 0.08);
+    --glass-blur: blur(20px);
+
+    /* ─────────────────────────────────────────────────
+       SHADOWS & EFFECTS
+       ───────────────────────────────────────────────── */
+    --shadow-sm: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+    --shadow-md: 0 8px 24px hsla(0, 0%, 0%, 0.4);
+    --shadow-lg: 0 16px 48px hsla(0, 0%, 0%, 0.5);
+    --shadow-glow: 0 0 40px hsla(161, 62%, 55%, 0.2);
+    --shadow-glow-intense: 0 0 60px hsla(161, 62%, 55%, 0.3);
+
+    /* ─────────────────────────────────────────────────
+       TYPOGRAPHY SCALE
+       ───────────────────────────────────────────────── */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+    --text-xs: 0.75rem;
+    /* 12px */
+    --text-sm: 0.875rem;
+    /* 14px */
+    --text-base: 1rem;
+    /* 16px */
+    --text-lg: 1.125rem;
+    /* 18px */
+    --text-xl: 1.25rem;
+    /* 20px */
+    --text-2xl: 1.5rem;
+    /* 24px */
+    --text-3xl: 2rem;
+    /* 32px */
+    --text-4xl: 2.5rem;
+    /* 40px */
+    --text-5xl: 3.5rem;
+    /* 56px */
+    --text-6xl: 4.5rem;
+    /* 72px */
+
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    --leading-tight: 1.2;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.8;
+
+    /* ─────────────────────────────────────────────────
+       SPACING SCALE
+       ───────────────────────────────────────────────── */
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.25rem;
+    /* 20px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-10: 2.5rem;
+    /* 40px */
+    --space-12: 3rem;
+    /* 48px */
+    --space-16: 4rem;
+    /* 64px */
+    --space-20: 5rem;
+    /* 80px */
+    --space-24: 6rem;
+    /* 96px */
+    --space-32: 8rem;
+    /* 128px */
+
+    /* ─────────────────────────────────────────────────
+       BORDER RADIUS
+       ───────────────────────────────────────────────── */
+    --radius-sm: 0.375rem;
+    /* 6px */
+    --radius-md: 0.5rem;
+    /* 8px */
+    --radius-lg: 0.75rem;
+    /* 12px */
+    --radius-xl: 1rem;
+    /* 16px */
+    --radius-2xl: 1.5rem;
+    /* 24px */
+    --radius-full: 9999px;
+
+    /* ─────────────────────────────────────────────────
+       TRANSITIONS
+       ───────────────────────────────────────────────── */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    --duration-slower: 700ms;
+
+    --transition-base: all var(--duration-normal) var(--ease-smooth);
+    --transition-fast: all var(--duration-fast) var(--ease-smooth);
+    --transition-slow: all var(--duration-slow) var(--ease-out-expo);
+    --transition-transform: transform var(--duration-normal) var(--ease-smooth);
+
+    /* ─────────────────────────────────────────────────
+       LAYOUT
+       ───────────────────────────────────────────────── */
+    --container-max: 1200px;
+    --container-narrow: 900px;
+    --section-padding: var(--space-24);
+    --navbar-height: 80px;
+
+    /* ─────────────────────────────────────────────────
+       Z-INDEX SCALE
+       ───────────────────────────────────────────────── */
+    --z-base: 0;
+    --z-elevated: 10;
+    --z-sticky: 100;
+    --z-overlay: 500;
+    --z-modal: 1000;
+    --z-max: 9999;
 }

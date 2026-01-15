@@ -1,98 +1,189 @@
 /**
  * Animations Controller
  * Handles scroll-triggered animations for skills, counters, and reveal effects
+ * @module AnimationsController
  */
 
 const AnimationsController = {
+    /** @type {IntersectionObserver} */
+    observer: null,
+
+    /**
+     * Initialize all animation controllers
+     */
     init() {
-        this.initSkillBars();
-        this.initCounters();
-        this.initScrollReveal();
+        // Check for reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            this.showAllImmediately();
+            return;
+        }
+
+        this.initIntersectionObserver();
+        this.observeSkillCategories();
+        this.observeSkillBars();
+        this.observeCounters();
+        this.observeProjectCards();
     },
 
-    initSkillBars() {
-        const skillProgressBars = document.querySelectorAll('.skill-progress');
+    /**
+     * Show all animated elements immediately (for reduced motion)
+     */
+    showAllImmediately() {
+        document.querySelectorAll('.skill-category, .project-card, .package-card').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.classList.add('animate-in');
+        });
+
+        document.querySelectorAll('.skill-progress').forEach(bar => {
+            bar.style.width = `${bar.dataset.progress}%`;
+        });
+
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            stat.textContent = stat.dataset.target;
+        });
+    },
+
+    /**
+     * Initialize intersection observer
+     */
+    initIntersectionObserver() {
+        this.observer = new IntersectionObserver(
+            (entries) => this.handleIntersection(entries),
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
+    },
+
+    /**
+     * Handle intersection events
+     * @param {IntersectionObserverEntry[]} entries
+     */
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                this.observer.unobserve(entry.target);
+            }
+        });
+    },
+
+    /**
+     * Observe skill category cards for reveal animation
+     */
+    observeSkillCategories() {
+        document.querySelectorAll('.skill-category').forEach((category, index) => {
+            category.style.transitionDelay = `${index * 0.15}s`;
+            this.observer.observe(category);
+        });
+    },
+
+    /**
+     * Observe skill bars for progress animation
+     */
+    observeSkillBars() {
         const skillsSection = document.getElementById('skills');
+        if (!skillsSection) return;
 
-        if (!skillsSection || skillProgressBars.length === 0) return;
-
-        const animateSkillBars = () => {
-            skillProgressBars.forEach(bar => {
-                const progress = bar.getAttribute('data-progress');
-                bar.style.width = `${progress}%`;
-            });
-        };
-
-        const skillsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    skillsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+        const skillsObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.animateSkillBars();
+                        skillsObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
 
         skillsObserver.observe(skillsSection);
     },
 
-    initCounters() {
-        const statNumbers = document.querySelectorAll('.stat-number');
+    /**
+     * Animate skill progress bars
+     */
+    animateSkillBars() {
+        document.querySelectorAll('.skill-progress').forEach((bar, index) => {
+            setTimeout(() => {
+                bar.style.width = `${bar.dataset.progress}%`;
+            }, index * 100);
+        });
+    },
+
+    /**
+     * Observe counter elements for animation
+     */
+    observeCounters() {
         const aboutSection = document.getElementById('about');
+        if (!aboutSection) return;
 
-        if (!aboutSection || statNumbers.length === 0) return;
-
-        const animateCounters = () => {
-            statNumbers.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        stat.textContent = Math.floor(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        stat.textContent = target;
+        const counterObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.animateCounters();
+                        counterObserver.unobserve(entry.target);
                     }
-                };
-
-                updateCounter();
-            });
-        };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+                });
+            },
+            { threshold: 0.5 }
+        );
 
         counterObserver.observe(aboutSection);
     },
 
-    initScrollReveal() {
-        const revealElements = document.querySelectorAll('.skill-category');
+    /**
+     * Animate counter numbers
+     */
+    animateCounters() {
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            const target = parseInt(stat.dataset.target);
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
+            let current = 0;
+            let step = 0;
 
-        if (revealElements.length === 0) return;
+            const updateCounter = () => {
+                step++;
+                current = Math.min(target, Math.round(increment * step));
+                stat.textContent = current;
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                if (step < steps) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    stat.textContent = target;
                 }
-            });
-        }, { threshold: 0.1 });
+            };
 
-        revealElements.forEach(el => {
+            requestAnimationFrame(updateCounter);
+        });
+    },
+
+    /**
+     * Observe project cards for reveal animation
+     */
+    observeProjectCards() {
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+            this.observer.observe(card);
+        });
+    },
+
+    /**
+     * Add scroll reveal to any element
+     * @param {string} selector - CSS selector for elements
+     * @param {number} [staggerDelay=0.1] - Delay between each element
+     */
+    addScrollReveal(selector, staggerDelay = 0.1) {
+        document.querySelectorAll(selector).forEach((el, index) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            revealObserver.observe(el);
+            el.style.transition = `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * staggerDelay}s`;
+            this.observer.observe(el);
         });
     }
 };
@@ -101,3 +192,8 @@ const AnimationsController = {
 document.addEventListener('DOMContentLoaded', () => {
     AnimationsController.init();
 });
+
+// Export for potential module use
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = AnimationsController;
+}

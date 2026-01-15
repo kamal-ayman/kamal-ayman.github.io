@@ -1,90 +1,421 @@
-/* ===== RESPONSIVE STYLES ===== */
+/* ===================================================
+   RESPONSIVE STYLES - Mobile First Approach
+   =================================================== */
+
+/* ─────────────────────────────────────────────────
+   LARGE TABLETS & SMALL DESKTOPS (max-width: 1024px)
+   ───────────────────────────────────────────────── */
 
 @media (max-width: 1024px) {
+    :root {
+        --section-padding: var(--space-20);
+    }
+
+    /* Hero Section */
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: var(--space-12);
     }
 
     .hero-text {
         order: 2;
+        align-items: center;
     }
 
     .hero-image {
         order: 1;
     }
 
+    .greeting::before {
+        display: none;
+    }
+
+    .hero-description {
+        margin-inline: auto;
+    }
+
     .hero-buttons {
         justify-content: center;
     }
 
-    .social-links {
+    .hero .social-links {
         justify-content: center;
     }
 
+    .typed-text {
+        min-width: auto;
+    }
+
+    /* About Section */
     .about-content {
         grid-template-columns: 1fr;
+        gap: var(--space-12);
     }
 
+    .code-window {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+
+    .about-text {
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-stats {
+        justify-content: center;
+    }
+
+    .about-services {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+
+    /* Skills Section */
     .skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    /* Packages Section */
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+
+    /* Projects Section */
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    .packages-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .project-card.featured {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.featured .project-image {
+        height: 220px;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+
+    .contact-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .contact-info-text {
+        max-width: 100%;
     }
 }
 
+/* ─────────────────────────────────────────────────
+   TABLETS (max-width: 768px)
+   ───────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
+    :root {
+        --section-padding: var(--space-16);
+        --navbar-height: 70px;
+    }
+
+    /* Typography Scale Down */
+    .section-title {
+        font-size: var(--text-3xl);
+    }
+
+    .section-subtitle {
+        font-size: var(--text-base);
+    }
+
+    /* Navigation */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%;
+        width: 80%;
+        max-width: 320px;
         height: 100vh;
-        background: var(--bg-secondary);
+        background: var(--bg-elevated);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        transition: var(--transition);
+        gap: var(--space-8);
+        padding: var(--space-8);
+        transition: right var(--duration-normal) var(--ease-smooth);
+        box-shadow: -10px 0 30px hsla(0, 0%, 0%, 0.5);
     }
 
     .nav-links.active {
         right: 0;
     }
 
+    .nav-link {
+        font-size: var(--text-lg);
+    }
+
     .hamburger {
         display: flex;
-        z-index: 1001;
     }
 
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    .name {
-        font-size: 2.5rem;
+    /* Hero */
+    .hero-name {
+        font-size: clamp(var(--text-3xl), 10vw, var(--text-4xl));
     }
 
     .image-wrapper {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
     }
 
+    .flutter-badge {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .flutter-badge i {
+        font-size: var(--text-2xl);
+    }
+
+    .typing-container {
+        font-size: var(--text-lg);
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Packages */
     .packages-grid {
         grid-template-columns: 1fr;
     }
 
+    .package-card-footer {
+        flex-direction: column;
+    }
+
+    .package-link {
+        width: 100%;
+    }
+
+    /* About Stats */
     .about-stats {
+        flex-wrap: wrap;
+        gap: var(--space-6);
+    }
+
+    .about-services {
+        grid-template-columns: 1fr;
+    }
+
+    /* Tech Icons */
+    .tech-icons {
+        gap: var(--space-4);
+    }
+
+    .tech-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Contact */
+    .contact-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-cta .btn {
+        width: 100%;
+        max-width: 280px;
         justify-content: center;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-social-wall {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+    }
+
+    .social-wall-link {
+        min-width: 100px;
+        padding: var(--space-4);
+    }
+
+    /* Back to Top */
+    .back-to-top {
+        bottom: var(--space-6);
+        right: var(--space-6);
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   MOBILE PHONES (max-width: 480px)
+   ───────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+    :root {
+        --section-padding: var(--space-12);
+    }
+
+    .container {
+        padding-inline: var(--space-4);
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: calc(var(--navbar-height) + var(--space-8));
+    }
+
+    .hero-name {
+        font-size: var(--text-3xl);
+    }
+
+    .image-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+
+    .flutter-badge {
+        width: 48px;
+        height: 48px;
+    }
+
+    .hero-description {
+        font-size: var(--text-base);
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+
+    .section-title .title-number {
+        font-size: var(--text-base);
+    }
+
+    /* Skills */
+    .skill-category {
+        padding: var(--space-6);
+    }
+
+    /* Packages */
+    .package-card-header,
+    .package-card-body {
+        padding: var(--space-5);
+    }
+
+    .package-name {
+        font-size: var(--text-lg);
+    }
+
+    .package-features {
+        gap: var(--space-1);
+    }
+
+    .package-stats {
+        gap: var(--space-4);
+        flex-wrap: wrap;
+    }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+        padding: var(--space-6);
+    }
+
+    /* Footer */
+    .footer {
+        padding-block: var(--space-12);
+    }
+
+    .footer-logo {
+        font-size: var(--text-xl);
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   ACCESSIBILITY & MOTION PREFERENCES
+   ───────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .particle {
+        display: none;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   HIGH CONTRAST MODE
+   ───────────────────────────────────────────────── */
+
+@media (prefers-contrast: high) {
+    :root {
+        --glass-border: hsla(0, 0%, 100%, 0.2);
+        --text-secondary: hsl(0, 0%, 80%);
+    }
+
+    .btn-secondary {
+        border-width: 3px;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   PRINT STYLES
+   ───────────────────────────────────────────────── */
+
+@media print {
+
+    .navbar,
+    .loader,
+    .back-to-top,
+    .hero-particles,
+    .scroll-down {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+
+    section {
+        padding: 40px 0;
     }
 }
