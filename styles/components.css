@@ -606,3 +606,56 @@
     height: 1em;
     fill: currentColor;
 }
+
+/* ─────────────────────────────────────────────────
+   THEME TOGGLE - Navbar Button
+   ───────────────────────────────────────────────── */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition-base);
+    margin-right: var(--space-4);
+    /* Space before hamburger */
+    margin-left: auto;
+    /* Push to right if needed */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adjust margin when inside nav-links or container */
+@media (min-width: 769px) {
+    .theme-toggle {
+        margin-left: var(--space-6);
+        margin-right: 0;
+    }
+}
+
+.theme-toggle:hover {
+    background: var(--bg-surface);
+    color: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 15px hsla(161, 75%, 50%, 0.2);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle i {
+    font-size: var(--text-lg);
+    transition: transform 0.5s var(--ease-elastic);
+}
+
+/* Animation trigger class */
+.theme-toggle.animate i {
+    transform: rotate(360deg) scale(1.2);
+}

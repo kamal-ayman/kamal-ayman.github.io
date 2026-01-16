@@ -460,3 +460,14 @@ section {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-brand-primary);
 }
+
+/* ===================================================
+   VIEW TRANSITIONS (Animated Theme Switch)
+   =================================================== */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    display: block;
+}
