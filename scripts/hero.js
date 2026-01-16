@@ -181,37 +181,38 @@ const HeroController = {
             const centerY = rect.top + rect.height / 2;
 
             // Calculate distance from center (normalized -1 to 1)
-            const percentX = (e.clientX - centerX) / (window.innerWidth / 2);
-            const percentY = (e.clientY - centerY) / (window.innerHeight / 2);
+            let percentX = (e.clientX - centerX) / (window.innerWidth / 2);
+            let percentY = (e.clientY - centerY) / (window.innerHeight / 2);
+
+            // Clamp percentages to prevent extreme rotation when mouse leaves window
+            percentX = Math.max(-1, Math.min(1, percentX));
+            percentY = Math.max(-1, Math.min(1, percentY));
 
             // Target rotation (Mouse effect)
-            // RotateY based on X movement (left/right tilts image sideways)
-            // RotateX based on Y movement (up/down tilts image forward/back)
             state.mouseX = percentX * config.sensitivity;
-            state.mouseY = -percentY * config.sensitivity; // Invert Y for natural feel
+            state.mouseY = -percentY * config.sensitivity;
         });
 
         // Keyboard Handler
         document.addEventListener('keydown', (e) => {
             // Only capture keys if user is at the top of the page (Hero Section)
-            // Using 0.8 to allow some margin, assuming hero is 100vh
             if (window.scrollY > window.innerHeight * 0.8) return;
 
             switch (e.key) {
                 case 'ArrowUp':
-                    state.keyY += config.keyStep;
+                    state.keyY = Math.min(state.keyY + config.keyStep, config.sensitivity);
                     e.preventDefault();
                     break;
                 case 'ArrowDown':
-                    state.keyY -= config.keyStep;
+                    state.keyY = Math.max(state.keyY - config.keyStep, -config.sensitivity);
                     e.preventDefault();
                     break;
                 case 'ArrowLeft':
-                    state.keyX -= config.keyStep;
+                    state.keyX = Math.max(state.keyX - config.keyStep, -config.sensitivity);
                     e.preventDefault();
                     break;
                 case 'ArrowRight':
-                    state.keyX += config.keyStep;
+                    state.keyX = Math.min(state.keyX + config.keyStep, config.sensitivity);
                     e.preventDefault();
                     break;
                 case 'Escape':
@@ -224,8 +225,12 @@ const HeroController = {
         // Animation Loop (Physics)
         const animate = () => {
             // Combine mouse and keyboard inputs
-            state.targetRotateY = state.mouseX + state.keyX;
-            state.targetRotateX = state.mouseY + state.keyY;
+            let targetY = state.mouseX + state.keyX;
+            let targetX = state.mouseY + state.keyY;
+
+            // Clamp total rotation to restrictions
+            state.targetRotateY = Math.max(-config.sensitivity, Math.min(config.sensitivity, targetY));
+            state.targetRotateX = Math.max(-config.sensitivity, Math.min(config.sensitivity, targetX));
 
             // Smooth interpolation (Lerp)
             state.rotateX += (state.targetRotateX - state.rotateX) * config.lerpFactor;
