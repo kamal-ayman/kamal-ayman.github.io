@@ -20,7 +20,6 @@ const AnimationsController = {
 
         this.initIntersectionObserver();
         this.observeSkillCategories();
-        this.observeSkillBars();
         this.observeCounters();
         this.observeProjectCards();
     },
@@ -35,9 +34,7 @@ const AnimationsController = {
             el.classList.add('animate-in');
         });
 
-        document.querySelectorAll('.skill-progress').forEach(bar => {
-            bar.style.width = `${bar.dataset.progress}%`;
-        });
+
 
         document.querySelectorAll('.stat-number').forEach(stat => {
             stat.textContent = stat.dataset.target;
@@ -80,38 +77,7 @@ const AnimationsController = {
         });
     },
 
-    /**
-     * Observe skill bars for progress animation
-     */
-    observeSkillBars() {
-        const skillsSection = document.getElementById('skills');
-        if (!skillsSection) return;
 
-        const skillsObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        this.animateSkillBars();
-                        skillsObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        skillsObserver.observe(skillsSection);
-    },
-
-    /**
-     * Animate skill progress bars
-     */
-    animateSkillBars() {
-        document.querySelectorAll('.skill-progress').forEach((bar, index) => {
-            setTimeout(() => {
-                bar.style.width = `${bar.dataset.progress}%`;
-            }, index * 100);
-        });
-    },
 
     /**
      * Observe counter elements for animation
