@@ -35,6 +35,7 @@ const HeroController = {
         this.initLoader();
         this.initTypingEffect();
         this.initParticles();
+        this.initImageInteraction();
     },
 
     /**
@@ -145,6 +146,116 @@ const HeroController = {
 
         // Continue creating particles
         setInterval(createParticle, 2000);
+    },
+
+    /**
+     * Initialize interactive image controls (Mouse + Keyboard)
+     */
+    initImageInteraction() {
+        const wrapper = document.querySelector('.image-wrapper');
+        if (!wrapper) return;
+
+        // State for physics-based animation
+        const state = {
+            mouseX: 0,
+            mouseY: 0,
+            rotateX: 0,
+            rotateY: 0,
+            targetRotateX: 0,
+            targetRotateY: 0,
+            keyX: 0,
+            keyY: 0
+        };
+
+        // Configuration
+        const config = {
+            sensitivity: 20, // Max rotation in degrees
+            lerpFactor: 0.1,  // Smoothing factor (0.1 = smooth, 1 = instant)
+            keyStep: 5        // Degrees per key press
+        };
+
+        // Mouse Move Handler
+        document.addEventListener('mousemove', (e) => {
+            const rect = wrapper.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Calculate distance from center (normalized -1 to 1)
+            const percentX = (e.clientX - centerX) / (window.innerWidth / 2);
+            const percentY = (e.clientY - centerY) / (window.innerHeight / 2);
+
+            // Target rotation (Mouse effect)
+            // RotateY based on X movement (left/right tilts image sideways)
+            // RotateX based on Y movement (up/down tilts image forward/back)
+            state.mouseX = percentX * config.sensitivity;
+            state.mouseY = -percentY * config.sensitivity; // Invert Y for natural feel
+        });
+
+        // Keyboard Handler
+        document.addEventListener('keydown', (e) => {
+            // Only capture keys if user is at the top of the page (Hero Section)
+            // Using 0.8 to allow some margin, assuming hero is 100vh
+            if (window.scrollY > window.innerHeight * 0.8) return;
+
+            switch (e.key) {
+                case 'ArrowUp':
+                    state.keyY += config.keyStep;
+                    e.preventDefault();
+                    break;
+                case 'ArrowDown':
+                    state.keyY -= config.keyStep;
+                    e.preventDefault();
+                    break;
+                case 'ArrowLeft':
+                    state.keyX -= config.keyStep;
+                    e.preventDefault();
+                    break;
+                case 'ArrowRight':
+                    state.keyX += config.keyStep;
+                    e.preventDefault();
+                    break;
+                case 'Escape':
+                    state.keyX = 0;
+                    state.keyY = 0;
+                    break;
+            }
+        });
+
+        // Animation Loop (Physics)
+        const animate = () => {
+            // Combine mouse and keyboard inputs
+            state.targetRotateY = state.mouseX + state.keyX;
+            state.targetRotateX = state.mouseY + state.keyY;
+
+            // Smooth interpolation (Lerp)
+            state.rotateX += (state.targetRotateX - state.rotateX) * config.lerpFactor;
+            state.rotateY += (state.targetRotateY - state.rotateY) * config.lerpFactor;
+
+            // Apply transform
+            // perspective is important for 3D effect
+            wrapper.style.transform = `
+                perspective(1000px)
+                rotateX(${state.rotateX}deg)
+                rotateY(${state.rotateY}deg)
+                scale3d(1.02, 1.02, 1.02)
+            `;
+
+            // Add dynamic light reflection (Glance effect) - Enhanced contrast
+            wrapper.style.filter = `brightness(${100 + (state.rotateY / 2)}%) contrast(1.05)`;
+
+            requestAnimationFrame(animate);
+        };
+
+        // Start loop
+        animate();
+
+        // Add cursor style to indicate interactivity
+        wrapper.style.cursor = 'grab';
+        wrapper.setAttribute('title', 'Use arrow keys or mouse to rotate');
+
+        // Add active grabbing cursor on mousedown
+        wrapper.addEventListener('mousedown', () => wrapper.style.cursor = 'grabbing');
+        wrapper.addEventListener('mouseup', () => wrapper.style.cursor = 'grab');
     }
 };
 
