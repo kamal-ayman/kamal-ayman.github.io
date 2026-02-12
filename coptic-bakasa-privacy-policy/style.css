@@ -47,6 +47,12 @@
     position: relative;
     overflow: hidden;
     transition: opacity 0.25s ease;
+
+    /* Performance Fix: Disable expensive glassmorphism since background is opaque */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /* Hint for the browser to promote layer */
+    will-change: opacity, transform;
 }
 
 .policy-content::before {
@@ -78,6 +84,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.45s ease, transform 0.45s ease;
+    will-change: opacity, transform;
 }
 
 .section-block.visible {
@@ -326,6 +333,8 @@ a:hover {
 @media (max-width: 768px) {
     .policy-content {
         padding: var(--space-6) var(--space-4);
+        /* Mobile Performance: Simple shadow */
+        box-shadow: var(--shadow-sm);
     }
 
     .policy-title {
@@ -334,5 +343,12 @@ a:hover {
 
     .nav-actions .btn-sm span {
         display: none;
+    }
+
+    /* Mobile Performance: Disable navbar glass effect */
+    .navbar.scrolled {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: var(--bg-elevated) !important;
     }
 }

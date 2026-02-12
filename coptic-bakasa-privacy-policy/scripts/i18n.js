@@ -94,17 +94,7 @@ const I18n = (() => {
             inEl.classList.add('fade-in');
 
             // Re-trigger section reveal animations
-            _revealSections(inEl);
         }, 250); // matches CSS transition duration
-    }
-
-    /** Restart staggered section-block reveals inside a container */
-    function _revealSections(container) {
-        const blocks = container.querySelectorAll('.section-block');
-        blocks.forEach((block, i) => {
-            block.classList.remove('visible');
-            setTimeout(() => block.classList.add('visible'), 80 * i);
-        });
     }
 
     // ── Public API ─────────────────────────────────────────
@@ -116,7 +106,6 @@ const I18n = (() => {
         // First-load reveal
         if (els.contentAr) {
             els.contentAr.classList.add('fade-in');
-            _revealSections(els.contentAr);
         }
 
         // Click handler
