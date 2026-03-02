@@ -1,0 +1,238 @@
+.navbar {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    height: 72px;
+    z-index: 1000;
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    transition: var(--transition-base);
+}
+
+.navbar.scrolled {
+    top: 12px;
+    height: 64px;
+    box-shadow: var(--shadow-md);
+}
+
+.nav-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.brand i,
+.bento-icon,
+.section-label,
+.cta-email {
+    color: var(--brand-accent);
+}
+
+.text-gradient {
+    background: linear-gradient(120deg, var(--brand-accent), #9c7eff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.94rem;
+    transition: var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+.menu-toggle {
+    display: none;
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    transition: var(--transition-base);
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+    background: var(--brand-accent-bg);
+    border-color: var(--border-strong);
+}
+
+.section-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: var(--radius-btn);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-base);
+}
+
+.btn-primary {
+    background: var(--brand-primary);
+    color: var(--bg-main);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-surface);
+}
+
+.btn-sm {
+    padding: 11px 20px;
+    font-size: 0.875rem;
+}
+
+.tag {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text-secondary);
+}
+
+.bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    padding: 42px;
+    transition: var(--transition-base);
+}
+
+.bento-card:hover {
+    border-color: var(--brand-accent);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.bento-icon {
+    font-size: 2rem;
+    margin-bottom: 26px;
+}
+
+.bento-card h4 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.bento-card p {
+    color: var(--text-secondary);
+    font-size: 0.96rem;
+}
+
+.cta {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 40px;
+    padding: 96px 70px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.cta-email {
+    font-size: clamp(1.4rem, 4vw, 3.2rem);
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    transition: var(--transition-base);
+}
+
+.cta-email:hover {
+    filter: brightness(1.2);
+}
+
+.footer-link,
+.copyright {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.footer-link:hover {
+    color: var(--text-primary);
+}
+
+.brand-inline {
+    font-weight: 800;
+    color: var(--text-primary);
+}

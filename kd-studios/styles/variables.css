@@ -1,56 +1,60 @@
 /* ===================================================
-   KD STUDIOS - DESIGN SYSTEM (V4 ULTIMATE)
-   The Pinnacle of Professional Mobile Engineering
+   KD STUDIOS - DESIGN TOKENS
    =================================================== */
 
 :root {
-    /* ─────────────────────────────────────────────────
-        ULTIMATE COLOR PALETTE
-        ───────────────────────────────────────────────── */
+    --brand-primary: #000000;
+    --brand-accent: #7c4dff;
+    --brand-accent-glow: rgba(124, 77, 255, 0.5);
+    --brand-accent-bg: rgba(124, 77, 255, 0.06);
 
-    /* Core Brand */
-    --color-brand-primary: #000000;
-    --color-brand-secondary: #0a0a0a;
-    --color-accent: #7c4dff;
-    --color-accent-subtle: rgba(124, 77, 255, 0.08);
-    --color-accent-glow: rgba(124, 77, 255, 0.4);
-
-    /* Backgrounds */
-    --bg-main: #ffffff;
-    --bg-subtle: #fafafa;
+    --bg-main: #fbfbfd;
+    --bg-surface: rgba(255, 255, 255, 0.85);
     --bg-card: #ffffff;
-    --bg-dark: #000000;
+    --bg-contrast: #0b0b0b;
 
-    /* Text */
-    --text-heading: #000000;
-    --text-body: #333333;
-    --text-muted: #666666;
-    --text-dim: #999999;
-    --text-on-dark: #ffffff;
+    --text-primary: #121212;
+    --text-secondary: #515154;
+    --text-tertiary: #a1a1a6;
 
-    /* Spacing System (Proportional) */
-    --s-1: 0.5rem;
-    --s-2: 1rem;
-    --s-3: 1.5rem;
-    --s-4: 2rem;
-    --s-6: 3rem;
-    --s-8: 4rem;
-    --s-12: 6rem;
-    --s-20: 10rem;
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --border-strong: rgba(0, 0, 0, 0.1);
+    --border-glass: rgba(0, 0, 0, 0.05);
 
-    /* Shadows & Borders */
-    --border-light: 1px solid rgba(0, 0, 0, 0.06);
-    --border-accent: 1px solid rgba(124, 77, 255, 0.1);
-    --shadow-pro: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
-    --shadow-pro-lg: 0 20px 50px -15px rgba(0, 0, 0, 0.1);
-    --shadow-accent: 0 10px 30px -10px var(--color-accent-glow);
+    --radius-section: 48px;
+    --radius-card: 24px;
+    --radius-btn: 14px;
+    --radius-pill: 999px;
 
-    /* Typography */
-    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --container-width: 1280px;
+    --container-padding: 40px;
+    --section-space: 120px;
 
-    /* Transitions */
-    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-    --transition-smooth: all 0.6s var(--ease-out-expo);
-    --transition-fast: all 0.3s var(--ease-out-expo);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.12);
+
+    --easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: all 0.8s var(--easing);
+    --transition-base: all 0.35s var(--easing);
+}
+
+[data-theme="dark"] {
+    --brand-primary: #ffffff;
+    --brand-accent: #a07aff;
+    --brand-accent-glow: rgba(160, 122, 255, 0.62);
+    --brand-accent-bg: rgba(160, 122, 255, 0.12);
+
+    --bg-main: #000000;
+    --bg-surface: rgba(20, 20, 20, 0.74);
+    --bg-card: #121212;
+    --bg-contrast: #f5f5f7;
+
+    --text-primary: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --text-tertiary: #6e6e73;
+
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
+    --border-glass: rgba(255, 255, 255, 0.05);
 }

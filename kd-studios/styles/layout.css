@@ -1,0 +1,36 @@
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.section {
+    padding: var(--section-space) 0;
+}
+
+.hero {
+    padding-top: 240px;
+    padding-bottom: 120px;
+}
+
+.hero-content {
+    max-width: 960px;
+}
+
+.footer {
+    padding: 64px 0;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 24px;
+}
