@@ -1,0 +1,56 @@
+/* ===================================================
+   KD STUDIOS - DESIGN SYSTEM (V4 ULTIMATE)
+   The Pinnacle of Professional Mobile Engineering
+   =================================================== */
+
+:root {
+    /* ─────────────────────────────────────────────────
+        ULTIMATE COLOR PALETTE
+        ───────────────────────────────────────────────── */
+
+    /* Core Brand */
+    --color-brand-primary: #000000;
+    --color-brand-secondary: #0a0a0a;
+    --color-accent: #7c4dff;
+    --color-accent-subtle: rgba(124, 77, 255, 0.08);
+    --color-accent-glow: rgba(124, 77, 255, 0.4);
+
+    /* Backgrounds */
+    --bg-main: #ffffff;
+    --bg-subtle: #fafafa;
+    --bg-card: #ffffff;
+    --bg-dark: #000000;
+
+    /* Text */
+    --text-heading: #000000;
+    --text-body: #333333;
+    --text-muted: #666666;
+    --text-dim: #999999;
+    --text-on-dark: #ffffff;
+
+    /* Spacing System (Proportional) */
+    --s-1: 0.5rem;
+    --s-2: 1rem;
+    --s-3: 1.5rem;
+    --s-4: 2rem;
+    --s-6: 3rem;
+    --s-8: 4rem;
+    --s-12: 6rem;
+    --s-20: 10rem;
+
+    /* Shadows & Borders */
+    --border-light: 1px solid rgba(0, 0, 0, 0.06);
+    --border-accent: 1px solid rgba(124, 77, 255, 0.1);
+    --shadow-pro: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+    --shadow-pro-lg: 0 20px 50px -15px rgba(0, 0, 0, 0.1);
+    --shadow-accent: 0 10px 30px -10px var(--color-accent-glow);
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --transition-smooth: all 0.6s var(--ease-out-expo);
+    --transition-fast: all 0.3s var(--ease-out-expo);
+}
