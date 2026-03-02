@@ -5,8 +5,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Adaptive Navbar Logic
+    // 1. Adaptive Navbar & Mesh Gradient Logic
     const navbar = document.querySelector('#navbar');
+    const ball1 = document.querySelector('.ball-1');
+    const ball2 = document.querySelector('.ball-2');
+
     const onScroll = () => {
         const threshold = window.innerHeight * 0.1;
         if (window.scrollY > threshold) {
@@ -15,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.remove('scrolled');
         }
     };
+
+    window.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        if (ball1) ball1.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
+        if (ball2) ball2.style.transform = `translate(${x * -30}px, ${y * -30}px)`;
+    });
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll(); // Initial check
@@ -60,9 +71,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Console Identity
+    // 4. Magnetic Buttons Interaction
+    const magneticBtns = document.querySelectorAll('.btn-pro');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', function (e) {
+            const position = btn.getBoundingClientRect();
+            const x = e.clientX - position.left - position.width / 2;
+            const y = e.clientY - position.top - position.height / 2;
+
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.4}px)`;
+        });
+
+        btn.addEventListener('mouseleave', function () {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // 5. Console Identity
     console.log(
-        '%c KD STUDIOS %c PRO RUNTIME V4 %c',
+        '%c KD STUDIOS %c ULTIMATE V4 %c',
         'background: #7c4dff; color: #fff; border-radius: 3px 0 0 3px; padding: 2px 5px; font-weight: bold;',
         'background: #000; color: #fff; border-radius: 0 3px 3px 0; padding: 2px 5px;',
         'background: transparent'
