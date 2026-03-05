@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js-ready');</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Identity -->
+    <title>Bakasa Coptic | KD Studios</title>
+    <meta name="description"
+        content="Bakasa Coptic (بكاسة قبطي) is an engaging social deduction party game developed by KD Studios.">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-title .accent {
+            background: linear-gradient(120deg, var(--brand-accent), #9c7eff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            display: inline-block;
+            padding: 0 0.1em 0.2em 0;
+            /* Fix clipping of Arabic letters */
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            margin: 0 auto 40px auto;
+        }
+
+        .ar-text {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+        }
+
+        .app-features {
+            margin-top: 60px;
+        }
+
+        .badges-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================
+           APP SHOWCASE — Split layout
+           ========================================= */
+
+        /* Full-width breakout section */
+        .app-showcase {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            margin-left: -50vw;
+            padding: 80px 5vw 120px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 80px;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        /* ── Left: Phone column ── */
+        .phone-col {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Glow blob behind the phone */
+        .phone-glow-wrap {
+            position: relative;
+        }
+
+        .phone-glow-wrap::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 260px;
+            height: 80px;
+            background: radial-gradient(ellipse, rgba(124, 77, 255, 0.35) 0%, transparent 70%);
+            filter: blur(24px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* iPhone 16 Pro Max shell */
+        .mockup-phone {
+            position: relative;
+            aspect-ratio: 9 / 19.5;
+            height: 600px;
+            border-radius: 52px;
+            background: #050505;
+            box-shadow:
+                0 0 0 1px #777,
+                0 0 0 2.5px #111,
+                0 0 0 5.5px #2d2d2d,
+                0 0 0 7px #161616,
+                inset 0 0 0 2px #000,
+                0 60px 120px -20px rgba(0, 0, 0, 0.85);
+            overflow: visible;
+            z-index: 1;
+        }
+
+        /* Hardware buttons */
+        .hw-btn {
+            position: absolute;
+            background: linear-gradient(90deg, #1c1c1c, #3e3e3e 50%, #1a1a1a);
+            border-radius: 3px;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .hw-action {
+            width: 3px;
+            height: 20px;
+            left: -9px;
+            top: 110px;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .hw-vol-up {
+            width: 3px;
+            height: 44px;
+            left: -9px;
+            top: 146px;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .hw-vol-dn {
+            width: 3px;
+            height: 44px;
+            left: -9px;
+            top: 202px;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .hw-power {
+            width: 3px;
+            height: 68px;
+            right: -9px;
+            top: 158px;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Dynamic Island */
+        .dynamic-island {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 29%;
+            height: 32px;
+            background: #000;
+            border-radius: 24px;
+            z-index: 20;
+        }
+
+        /* Screen */
+        .mockup-screen {
+            position: absolute;
+            inset: 0;
+            border-radius: 46px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .screen-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .screen-img.is-visible {
+            opacity: 1;
+        }
+
+        .screen-sheen {
+            position: absolute;
+            inset: 0;
+            border-radius: 46px;
+            background: linear-gradient(150deg, rgba(255, 255, 255, 0.07) 0%, transparent 42%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* ── Right: Feature cards column ── */
+        .feature-col {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .feature-card {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 22px 24px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: 1px solid transparent;
+            outline: none;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            bottom: 10%;
+            width: 3px;
+            border-radius: 2px;
+            background: var(--brand-accent);
+            transform: scaleY(0);
+            transform-origin: center;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .feature-card:hover {
+            background: rgba(124, 77, 255, 0.06);
+        }
+
+        .feature-card.is-active {
+            background: rgba(124, 77, 255, 0.1);
+            border-color: rgba(124, 77, 255, 0.2);
+        }
+
+        .feature-card.is-active::before {
+            transform: scaleY(1);
+        }
+
+        /* Animated progress bar at the bottom of active card */
+        .feature-card .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--brand-accent), #9c7eff);
+            border-radius: 2px;
+            transition: width 0s linear;
+        }
+
+        .feature-card.is-active .progress-bar {
+            width: 100%;
+            transition: width 3.5s linear;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(124, 77, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--brand-accent);
+            flex-shrink: 0;
+            transition: background 0.3s ease;
+        }
+
+        .feature-card.is-active .feature-icon {
+            background: rgba(124, 77, 255, 0.22);
+        }
+
+        .feature-text h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+            color: var(--text-primary);
+        }
+
+        .feature-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Responsive: stack on mobile */
+        @media (max-width: 880px) {
+            .app-showcase {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 48px;
+                padding: 60px 5vw 80px;
+            }
+
+            .mockup-phone {
+                height: 480px;
+            }
+
+            .mockup-screen {
+                border-radius: 36px;
+            }
+
+            .screen-sheen {
+                border-radius: 36px;
+            }
+
+            .feature-col {
+                width: 100%;
+                max-width: 480px;
+            }
+
+            .dynamic-island {
+                height: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mockup-phone {
+                height: 380px;
+                border-radius: 44px;
+            }
+
+            .mockup-screen {
+                border-radius: 38px;
+            }
+
+            .screen-sheen {
+                border-radius: 38px;
+            }
+
+            .dynamic-island {
+                height: 22px;
+                width: 32%;
+                top: 10px;
+            }
+
+            .hw-action {
+                top: 86px;
+                height: 16px;
+            }
+
+            .hw-vol-up {
+                top: 112px;
+                height: 36px;
+            }
+
+            .hw-vol-dn {
+                top: 158px;
+                height: 36px;
+            }
+
+            .hw-power {
+                top: 124px;
+                height: 54px;
+            }
+        }
+
+        /* ============ end APP SHOWCASE ============ */
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .showcase-container {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 80px 0;
+            overflow: visible;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mockups-3d-grid {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            width: 100%;
+            max-width: 1000px;
+            perspective: 1500px;
+        }
+
+        .mockup-frame {
+            position: absolute;
+            max-height: 540px;
+            height: 60vh;
+            aspect-ratio: 1179 / 2556;
+            border-radius: 40px;
+            border: 8px solid #1a1a1a;
+            /* Lighter border to simulate titanium rim */
+            background: #000;
+            box-shadow:
+                inset 0 0 0 4px #000,
+                /* inner bezel */
+                0 0 0 1px #444,
+                /* outer sharp edge */
+                0 30px 60px -15px rgba(0, 0, 0, 0.5);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            will-change: transform, filter, opacity, box-shadow;
+            cursor: pointer;
+        }
+
+        /* Power and Volume Buttons on iPhone */
+        .iphone-button {
+            position: absolute;
+            background: #1a1a1a;
+            box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .btn-mute {
+            width: 3px;
+            height: 16px;
+            left: -11px;
+            top: 100px;
+        }
+
+        .btn-vol-up {
+            width: 3px;
+            height: 35px;
+            left: -11px;
+            top: 130px;
+        }
+
+        .btn-vol-down {
+            width: 3px;
+            height: 35px;
+            left: -11px;
+            top: 180px;
+        }
+
+        .btn-power {
+            width: 3px;
+            height: 55px;
+            right: -11px;
+            top: 140px;
+        }
+
+        /* The 3D Spread out */
+        .mockups-3d-grid .mockup-frame:nth-child(1) {
+            transform: translateX(-40%) rotateY(15deg) rotateZ(-4deg) scale(0.85);
+            z-index: 1;
+            opacity: 0.6;
+            filter: blur(2px) brightness(0.6);
+        }
+
+        .mockups-3d-grid .mockup-frame:nth-child(2) {
+            transform: translateX(-15%) rotateY(8deg) rotateZ(-2deg) scale(0.95);
+            z-index: 2;
+            opacity: 0.9;
+            filter: blur(0.5px) brightness(0.8);
+            box-shadow:
+                -5px 0 15px rgba(255, 255, 255, 0.05),
+                /* mock edge lighting */
+                -10px 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .mockups-3d-grid .mockup-frame:nth-child(3) {
+            transform: translateX(15%) rotateY(-8deg) rotateZ(2deg) scale(0.95);
+            z-index: 2;
+            opacity: 0.9;
+            filter: blur(0.5px) brightness(0.8);
+            box-shadow:
+                5px 0 15px rgba(255, 255, 255, 0.05),
+                10px 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .mockups-3d-grid .mockup-frame:nth-child(4) {
+            transform: translateX(40%) rotateY(-15deg) rotateZ(4deg) scale(0.85);
+            z-index: 1;
+            opacity: 0.6;
+            filter: blur(2px) brightness(0.6);
+        }
+
+        /* Hover Interaction */
+        .mockups-3d-grid:hover .mockup-frame {
+            opacity: 0.3 !important;
+            filter: blur(5px) brightness(0.4) !important;
+            transform: translateX(0) scale(0.8) translateY(20px) !important;
+        }
+
+        .mockups-3d-grid .mockup-frame:hover {
+            transform: translateX(0) scale(1.05) rotateY(0deg) rotateZ(0deg) translateY(-20px) !important;
+            z-index: 10 !important;
+            opacity: 1 !important;
+            filter: blur(0) brightness(1) !important;
+            box-shadow:
+                inset 0 0 0 4px #000,
+                0 0 0 2px #444,
+                0 50px 100px rgba(0, 0, 0, 0.9),
+                0 0 60px rgba(124, 77, 255, 0.4) !important;
+        }
+
+        .dynamic-island {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32%;
+            height: 28px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: inset 0 -1px 2px rgba(255, 255, 255, 0.05);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 32px;
+            position: relative;
+        }
+
+        /* Removed interactive glare for UX simplicity when overlapping */
+        .glare {
+            display: none;
+        }
+
+        .mockup-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .mockups-3d-grid {
+                height: 480px;
+            }
+
+            .mockup-frame {
+                height: 480px;
+                border: 6px solid #050505;
+                border-radius: 36px;
+            }
+
+            .img-container {
+                border-radius: 30px;
+            }
+
+            .dynamic-island {
+                height: 22px;
+                top: 10px;
+                width: 35%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mockup-frame {
+                height: 48vh;
+                border: 6px solid #050505;
+                border-radius: 32px;
+            }
+
+            .img-container {
+                border-radius: 24px;
+            }
+
+            .dynamic-island {
+                height: 18px;
+                top: 8px;
+            }
+        }
+
+        .legal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            transition: var(--transition-base);
+            font-weight: 700;
+        }
+
+        .legal-card:hover {
+            border-color: var(--brand-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .legal-card i {
+            font-size: 1.5rem;
+            color: var(--brand-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ambient Visual Background -->
+    <div class="background-layer">
+        <div class="mesh-ball ball-primary"></div>
+        <div class="mesh-ball ball-secondary"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <!-- Smart Glass Navigation -->
+    <nav class="navbar" id="navbar" aria-label="Primary">
+        <div class="nav-content">
+            <a href="../index.html" class="brand">
+                <i class="fas fa-cube"></i> KD STUDIOS
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle"
+                aria-label="Open navigation" aria-expanded="false"
+                aria-controls="primary-nav">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="../index.html#work" class="nav-link">Production</a>
+                </li>
+                <li><a href="../index.html#methods"
+                        class="nav-link">Methodology</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle"
+                    title="Switch Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero section">
+            <div class="container container-narrow">
+                <div style="display: flex; justify-content: center;">
+                    <div class="page-badge reveal">
+                        <i class="fas fa-gamepad"></i> Mobile Game
+                    </div>
+                </div>
+
+                <h1 class="hero-title reveal" dir="ltr">
+                    <span>Bakasa</span>
+                    <span class="accent ar-text">قبطي</span>
+                </h1>
+
+                <p class="hero-subtitle reveal">
+                    An immersive social deduction party game. Find the impostor,
+                    outsmart your friends, and dominate the game sessions with
+                    customized rules and themes.
+                </p>
+
+                <div class="badges-container reveal">
+                    <a href="https://play.google.com/store/apps/details?id=com.kdstudios.coptic_bakasa"
+                        target="_blank" class="btn btn-primary">
+                        <i class="fab fa-google-play"></i> Get it on Play Store
+                    </a>
+                </div>
+
+                <!-- App Showcase: Split layout -->
+                <div class="app-showcase reveal">
+
+                    <!-- Left: Phone -->
+                    <div class="phone-col">
+                        <div class="phone-glow-wrap">
+                            <div class="mockup-phone" id="mockup-phone">
+                                <div class="hw-btn hw-action"></div>
+                                <div class="hw-btn hw-vol-up"></div>
+                                <div class="hw-btn hw-vol-dn"></div>
+                                <div class="hw-btn hw-power"></div>
+                                <div class="dynamic-island"></div>
+                                <div class="mockup-screen">
+                                    <img class="screen-img is-visible"
+                                        src="assets/images/1.png" alt="Home"
+                                        loading="eager">
+                                    <img class="screen-img"
+                                        src="assets/images/2.png"
+                                        alt="Game Setup" loading="lazy">
+                                    <img class="screen-img"
+                                        src="assets/images/3.png" alt="Roles"
+                                        loading="lazy">
+                                    <img class="screen-img"
+                                        src="assets/images/4.png" alt="Settings"
+                                        loading="lazy">
+                                    <div class="screen-sheen"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Feature cards -->
+                    <div class="feature-col" id="feature-col">
+
+                        <div class="feature-card is-active" data-idx="0"
+                            tabindex="0">
+                            <div class="feature-icon"><i
+                                    class="fas fa-house"></i></div>
+                            <div class="feature-text">
+                                <h4>Home Screen</h4>
+                                <p>Browse game modes, check leaderboards, and
+                                    kick off a new session straight from the
+                                    home dashboard.</p>
+                            </div>
+                            <div class="progress-bar"></div>
+                        </div>
+
+                        <div class="feature-card" data-idx="1" tabindex="0">
+                            <div class="feature-icon"><i
+                                    class="fas fa-sliders"></i></div>
+                            <div class="feature-text">
+                                <h4>Game Setup</h4>
+                                <p>Customize player count, role distribution,
+                                    and game rules before every session.</p>
+                            </div>
+                            <div class="progress-bar"></div>
+                        </div>
+
+                        <div class="feature-card" data-idx="2" tabindex="0">
+                            <div class="feature-icon"><i
+                                    class="fas fa-masks-theater"></i></div>
+                            <div class="feature-text">
+                                <h4>Roles & Gameplay</h4>
+                                <p>Each player gets their secret role. Impostors
+                                    stay hidden while innocents try to uncover
+                                    the truth.</p>
+                            </div>
+                            <div class="progress-bar"></div>
+                        </div>
+
+                        <div class="feature-card" data-idx="3" tabindex="0">
+                            <div class="feature-icon"><i
+                                    class="fas fa-circle-play"></i></div>
+                            <div class="feature-text">
+                                <h4>Round View</h4>
+                                <p>Each round, players secretly check their
+                                    assigned role, then tap "I'm Ready" to keep
+                                    it hidden from others.</p>
+                            </div>
+                            <div class="progress-bar"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Legal Information Access -->
+                <div class="reveal mt-4" style="margin-top: 100px;">
+                    <div class="section-label">Legal & Privacy Center</div>
+                    <p class="text-secondary mb-4" style="margin-bottom: 20px;">
+                        Review our commitments to your data privacy and manage
+                        your account.</p>
+
+                    <div class="legal-links">
+                        <a href="privacy-policy/" class="legal-card">
+                            <i class="fas fa-shield-halved"></i>
+                            <div>
+                                <div class="title">Privacy Policy</div>
+                                <div class="text-secondary text-sm font-normal"
+                                    style="font-weight: 400; font-size: 0.85rem;">
+                                    Read how we handle your data</div>
+                            </div>
+                        </a>
+
+                        <a href="delete-account/" class="legal-card">
+                            <i class="fas fa-user-xmark"></i>
+                            <div>
+                                <div class="title">Account Deletion</div>
+                                <div class="text-secondary text-sm font-normal"
+                                    style="font-weight: 400; font-size: 0.85rem;">
+                                    Manage your game profile data</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner" style="justify-content: center;">
+                <div class="copyright">
+                    <span class="brand-inline">KD STUDIOS</span> &copy; 2026.
+                    All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- KD Studios Runtime Scripts -->
+    <script src="../scripts/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ── Reveal observer ── */
+            const revealObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('active');
+                        revealObs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                el.style.transitionDelay = `${i * 80}ms`;
+                revealObs.observe(el);
+            });
+
+            /* ── App Showcase ── */
+            const screenImgs = Array.from(document.querySelectorAll('.screen-img'));
+            const featureCards = Array.from(document.querySelectorAll('.feature-card'));
+            const stage = document.getElementById('mockup-phone');
+            let current = 0;
+            let timer;
+            const INTERVAL = 3500;
+
+            function showSlide(idx, fromUser = false) {
+                // Crossfade phone screen
+                screenImgs.forEach((img, i) => img.classList.toggle('is-visible', i === idx));
+
+                // Update feature cards
+                featureCards.forEach((card, i) => {
+                    const bar = card.querySelector('.progress-bar');
+                    if (i === idx) {
+                        card.classList.add('is-active');
+                        // Reset bar then re-trigger transition
+                        bar.style.transition = 'none';
+                        bar.style.width = '0%';
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                bar.style.transition = `width ${INTERVAL}ms linear`;
+                                bar.style.width = '100%';
+                            });
+                        });
+                    } else {
+                        card.classList.remove('is-active');
+                        bar.style.transition = 'none';
+                        bar.style.width = '0%';
+                    }
+                });
+                current = idx;
+            }
+
+            function nextSlide() {
+                showSlide((current + 1) % screenImgs.length);
+            }
+
+            // Feature card clicks
+            featureCards.forEach((card, i) => {
+                card.addEventListener('click', () => { showSlide(i, true); resetTimer(); });
+                card.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { showSlide(i, true); resetTimer(); }
+                });
+            });
+
+            // Auto-cycle
+            function startTimer() { timer = setInterval(nextSlide, INTERVAL); }
+            function resetTimer() { clearInterval(timer); startTimer(); }
+
+            // Pause on hover
+            stage.addEventListener('mouseenter', () => clearInterval(timer));
+            stage.addEventListener('mouseleave', startTimer);
+
+            showSlide(0);
+            startTimer();
+
+        });
+    </script>
+</body>
+
+</html>

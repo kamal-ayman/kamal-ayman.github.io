@@ -1,0 +1,410 @@
+/* ═══════════════════════════════════════════════════════════
+   COPTIC BAKASA — LEGAL PAGES DESIGN SYSTEM
+   Custom UI built on KD Studios design tokens
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Page Layout ───────────────────────────────────────────── */
+.legal-page {
+    padding-top: 160px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+}
+
+/* ── Narrow Container ──────────────────────────────────────── */
+.container-narrow {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ── Page Header ───────────────────────────────────────────── */
+.page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--brand-accent-bg);
+    color: var(--brand-accent);
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.page-title .accent {
+    background: linear-gradient(120deg, var(--brand-accent), #9c7eff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.page-meta {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.page-meta i {
+    color: var(--brand-accent);
+}
+
+/* ── Content Card ──────────────────────────────────────────── */
+.content-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: opacity 0.3s var(--easing), transform 0.3s var(--easing);
+}
+
+.content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-accent), #9c7eff, transparent);
+}
+
+/* ── Fade Transitions ──────────────────────────────────────── */
+.content-card.fade-out {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.content-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Section Blocks (staggered reveal) ─────────────────────── */
+.section-block {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s var(--easing), transform 0.5s var(--easing);
+}
+
+.section-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-block:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+.section-block h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    letter-spacing: -0.02em;
+}
+
+.section-block h3 {
+    font-size: 1.125rem;
+    color: var(--brand-accent);
+    margin-top: 28px;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.section-block p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 0.96rem;
+}
+
+.section-block p:last-child {
+    margin-bottom: 0;
+}
+
+strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ── Lists ─────────────────────────────────────────────────── */
+.section-block ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 16px;
+}
+
+.section-block ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.96rem;
+}
+
+.section-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-accent);
+}
+
+.section-block ul ul {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* ── Links ─────────────────────────────────────────────────── */
+.content-card a {
+    color: var(--brand-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-base);
+    border-bottom: 1px solid transparent;
+}
+
+.content-card a:hover {
+    border-bottom-color: var(--brand-accent);
+    filter: brightness(1.2);
+}
+
+/* ── Table ─────────────────────────────────────────────────── */
+.table-responsive {
+    overflow-x: auto;
+    margin: 24px 0;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+}
+
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 540px;
+}
+
+.policy-table th,
+.policy-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.92rem;
+}
+
+.policy-table th {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.policy-table td {
+    color: var(--text-secondary);
+}
+
+.policy-table tr:last-child td {
+    border-bottom: none;
+}
+
+.policy-table tr:hover td {
+    background: var(--brand-accent-bg);
+}
+
+/* ── Contact Card ──────────────────────────────────────────── */
+.contact-info {
+    background: var(--bg-surface);
+    padding: 24px 28px;
+    border-radius: 16px;
+    border-left: 3px solid var(--brand-accent);
+    margin-top: 16px;
+}
+
+.contact-info p {
+    margin-bottom: 8px;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Action Box (Delete Account) ──────────────────────────── */
+.action-box {
+    background: var(--bg-surface);
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.action-box .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-box .btn-primary {
+    background: var(--brand-primary);
+    color: var(--bg-main);
+}
+
+/* ── Divider & Disclaimer ──────────────────────────────────── */
+.policy-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 40px 0;
+}
+
+.policy-disclaimer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+
+/* ── Language Toggle ───────────────────────────────────────── */
+.lang-toggle {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: var(--transition-base);
+    margin-right: 8px;
+}
+
+.lang-toggle:hover {
+    background: var(--brand-accent-bg);
+    color: var(--brand-accent);
+    border-color: var(--border-strong);
+}
+
+/* ── Utility Classes ──────────────────────────────────────── */
+.mt-2 {
+    margin-top: 8px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RTL (Arabic) Overrides
+   ═══════════════════════════════════════════════════════════ */
+.rtl {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+.rtl .section-block ul {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.rtl .section-block ul li {
+    padding-left: 0;
+    padding-right: 24px;
+}
+
+.rtl .section-block ul li::before {
+    left: auto;
+    right: 0;
+}
+
+.rtl .section-block h2,
+.rtl .section-block h3,
+.rtl .section-block p,
+.rtl .policy-table th,
+.rtl .policy-table td {
+    text-align: right;
+}
+
+.rtl .contact-info {
+    border-left: none;
+    border-right: 3px solid var(--brand-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .legal-page {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .container-narrow {
+        padding: 0 18px;
+    }
+
+    .content-card {
+        padding: 32px 24px;
+        border-radius: 18px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .content-card {
+        padding: 24px 18px;
+        border-radius: 14px;
+    }
+
+    .section-block h2 {
+        font-size: 1.25rem;
+    }
+
+    .nav-actions .lang-toggle {
+        width: 36px;
+        height: 36px;
+    }
+}
