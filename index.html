@@ -33,8 +33,8 @@
     <meta name="twitter:image" content="https://github.com/kamal-ayman.png">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://github.com/kamal-ayman.png" type="image/png">
-    <link rel="apple-touch-icon" href="https://github.com/kamal-ayman.png">
+    <link rel="icon" href="assets/profile.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="assets/profile.jpg">
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#0a0a0f">
@@ -68,23 +68,6 @@
 
 <body>
     <!-- ============================================
-         LOADER
-         ============================================ -->
-    <div class="loader" id="loader" aria-hidden="true">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <!-- Flutter SVG Logo -->
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37l-.002-.001z" />
-                </svg>
-            </div>
-            <span class="loader-text">Loading</span>
-            <div class="loader-bar"></div>
-        </div>
-    </div>
-
-    <!-- ============================================
          NAVIGATION
          ============================================ -->
     <header>
@@ -104,6 +87,8 @@
                             role="menuitem">About</a></li>
                     <li role="none"><a href="#skills" class="nav-link"
                             role="menuitem">Skills</a></li>
+                    <li role="none"><a href="#projects" class="nav-link"
+                            role="menuitem">Projects</a></li>
                     <li role="none"><a href="#packages" class="nav-link"
                             role="menuitem">Packages</a></li>
                     <li role="none"><a href="#contact" class="nav-link"
@@ -183,7 +168,7 @@
 
                 <div class="hero-image">
                     <div class="image-wrapper">
-                        <img src="https://github.com/kamal-ayman.png"
+                        <img src="assets/profile.jpg"
                             alt="Kamal Ayman - Flutter Developer"
                             loading="eager">
                         <div class="image-border" aria-hidden="true"></div>
@@ -353,49 +338,8 @@
                     </p>
                 </div>
 
-                <div class="skills-grid">
-                    <article class="skill-category">
-                        <h3>
-                            <i class="fas fa-mobile-alt"></i>
-                            Mobile Development
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Dart</span>
-                            <span class="skill-tag">Android (Kotlin)</span>
-                            <span class="skill-tag">Swift (iOS)</span>
-                        </div>
-                    </article>
-
-                    <article class="skill-category">
-                        <h3>
-                            <i class="fas fa-server"></i>
-                            Backend & Database
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Firebase</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">GraphQL</span>
-                            <span class="skill-tag">SQLite</span>
-                            <span class="skill-tag">Hive</span>
-                            <span class="skill-tag">Supabase</span>
-                        </div>
-                    </article>
-
-                    <article class="skill-category">
-                        <h3>
-                            <i class="fas fa-cogs"></i>
-                            Tools & Practices
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git & GitHub</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">Clean Architecture</span>
-                            <span class="skill-tag">TDD</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Jira</span>
-                        </div>
-                    </article>
+                <div class="skills-grid" id="skills-grid">
+                    <!-- Skills will be dynamically rendered by JavaScript -->
                 </div>
 
                 <div class="tech-icons">
@@ -433,6 +377,32 @@
         </section>
 
         <!-- ============================================
+             PROJECTS SECTION
+             ============================================ -->
+        <section class="projects" id="projects"
+            aria-labelledby="projects-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">
+                        <i class="fas fa-rocket"></i>
+                        My Portfolio
+                    </span>
+                    <h2 class="section-title" id="projects-heading">
+                        <span class="title-number">03.</span>Featured Projects
+                    </h2>
+                    <p class="section-subtitle">
+                        A selection of mobile applications and tools I've
+                        developed
+                    </p>
+                </div>
+
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be dynamically rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
              PACKAGES SECTION
              ============================================ -->
         <section class="packages" id="packages"
@@ -444,7 +414,7 @@
                         Open Source
                     </span>
                     <h2 class="section-title" id="packages-heading">
-                        <span class="title-number">03.</span>Flutter Packages
+                        <span class="title-number">04.</span>Flutter Packages
                     </h2>
                     <p class="section-subtitle">
                         Open source Flutter packages I've created and published
@@ -470,7 +440,7 @@
                         Let's Connect
                     </span>
                     <h2 class="section-title" id="contact-heading">
-                        <span class="title-number">04.</span>Get In Touch
+                        <span class="title-number">05.</span>Get In Touch
                     </h2>
                     <p class="section-subtitle">
                         Have a project in mind or want to collaborate?
@@ -561,12 +531,8 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Scripts - Modular Architecture -->
-    <script src="scripts/navigation.js"></script>
-    <script src="scripts/hero.js"></script>
-    <script src="scripts/animations.js"></script>
-    <script src="scripts/packages.js"></script>
-    <script src="scripts/theme.js"></script>
+    <!-- Scripts - Modular Professional Architecture -->
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>
