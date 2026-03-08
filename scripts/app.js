@@ -64,10 +64,10 @@
                 title: 'Bakasa Coptic',
                 category: 'Mobile Game',
                 description: 'An immersive social deduction party game. Find the impostor, outsmart your friends, and dominate game sessions with customized rules and themes.',
-                image: 'pages/kd-studios/pages/coptic-bakasa/assets/images/1.png',
+                image: 'kd-studios/coptic-bakasa/assets/images/1.png',
                 technologies: ['Flutter', 'Dart', 'Firebase', 'Game Design'],
                 links: {
-                    demo: 'pages/kd-studios/pages/coptic-bakasa/index.html',
+                    demo: 'kd-studios/coptic-bakasa/index.html',
                     github: 'https://play.google.com/store/apps/details?id=com.kdstudios.coptic_bakasa'
                 },
                 featured: true
