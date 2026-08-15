@@ -11,27 +11,42 @@
 
     const Data = {
         typingWords: [
+            'Software Engineer',
+            'Mobile App Developer',
             'Flutter Developer',
-            'Mobile App Expert',
-            'UI/UX Enthusiast',
-            'Open Source Creator'
+            'Android & iOS Developer'
         ],
 
         skills: [
             {
                 category: 'Mobile Development',
                 icon: 'fas fa-mobile-alt',
-                tags: ['Flutter', 'Dart', 'Android (Kotlin)', 'Swift (iOS)']
+                tags: ['Flutter', 'Dart', 'Android', 'iOS', 'State Management (Provider, Riverpod, BLoC, GetX)', 'Responsive & Adaptive UI', 'App Store & Google Play Deployment', 'Performance Profiling & Optimization']
             },
             {
-                category: 'Backend & Database',
-                icon: 'fas fa-server',
-                tags: ['Firebase', 'REST APIs', 'GraphQL', 'SQLite', 'Hive', 'Supabase']
+                category: 'Architecture & Practices',
+                icon: 'fas fa-drafting-compass',
+                tags: ['Clean Architecture', 'MVVM', 'SOLID Principles', 'Design Patterns', 'RESTful API Integration', 'Agile/Scrum', 'Code Review']
             },
             {
-                category: 'Tools & Practices',
-                icon: 'fas fa-cogs',
-                tags: ['Git & GitHub', 'CI/CD', 'Clean Architecture', 'TDD', 'Figma', 'Jira']
+                category: 'Backend & Cloud Integration',
+                icon: 'fas fa-cloud',
+                tags: ['Firebase', 'Authentication', 'Push Notifications', 'Payment Gateway Integration', 'Maps SDK', 'Localization (i18n)', 'Remote APIs']
+            },
+            {
+                category: 'Tools & DevOps',
+                icon: 'fas fa-tools',
+                tags: ['Git', 'GitHub', 'Postman', 'Fastlane', 'Codemagic', 'GitHub Actions (CI/CD)', 'Android Studio', 'Xcode', 'VS Code']
+            },
+            {
+                category: 'Programming Languages',
+                icon: 'fas fa-code',
+                tags: ['Dart', 'Swift', 'Kotlin', 'Java', 'C#', 'C++', 'Python']
+            },
+            {
+                category: 'Testing, Quality & AI',
+                icon: 'fas fa-brain',
+                tags: ['Unit Testing', 'Widget Testing', 'Debugging & Crash Analysis', 'AI-Assisted Development (Claude / Claude Code, ChatGPT, GitHub Copilot, Cursor)']
             }
         ],
 
@@ -60,17 +75,146 @@
 
         projects: [
             {
-                id: 'bakasa-coptic',
-                title: 'Bakasa Coptic',
-                category: 'Mobile Game',
-                description: 'An immersive social deduction party game. Find the impostor, outsmart your friends, and dominate game sessions with customized rules and themes.',
-                image: 'kd-studios/coptic-bakasa/assets/images/1.png',
-                technologies: ['Flutter', 'Dart', 'Firebase', 'Game Design'],
+                id: 'nacd-admission',
+                title: 'NACD Admission App',
+                category: 'Government / Education',
+                client: 'Freelance for BlackStone eIT',
+                description: 'Built a student registration, admission, and testing platform from scratch for the National Academy for Childhood Development (NACD), a UAE Government entity under the Abu Dhabi Early Childhood Authority. Managed the project from architecture through client collaboration to release.',
+                features: [
+                    'Student registration & admission workflow',
+                    'Online tests and document upload',
+                    'Application tracking & real-time status notifications',
+                    'REST API integration'
+                ],
+                metrics: '2.8K+ downloads (Google Play)',
                 links: {
-                    demo: 'kd-studios/coptic-bakasa/index.html',
-                    github: 'https://play.google.com/store/apps/details?id=com.kdstudios.coptic_bakasa'
+                    appStore: 'https://apps.apple.com/ae/app/القبول-في-nacd/id6745439273',
+                    googlePlay: 'https://play.google.com/store/apps/details?id=ae.ac.nacd'
                 },
-                featured: true
+                featured: true,
+                icon: 'fas fa-graduation-cap',
+                logo: 'assets/apps/logos/nacd.png',
+                mockup: 'assets/apps/mockups/nacd.webp',
+                gradientStart: '#10b981',
+                gradientEnd: '#06b6d4',
+                technologies: ['Flutter', 'Dart', 'REST API', 'App Release']
+            },
+            {
+                id: 'mawajeeb-platform',
+                title: 'Mawajeeb Platform',
+                category: 'Food Delivery & Restaurant Management',
+                client: 'Nerdware',
+                description: 'Developed customer and restaurant applications from scratch, covering the full order lifecycle for a food delivery platform. Worked closely with designers and backend developers.',
+                features: [
+                    'Authentication & Restaurant management dashboard',
+                    'Order management & Menu management',
+                    'Push notifications & Third-party API integration'
+                ],
+                links: {
+                    customerIos: 'https://apps.apple.com/eg/app/mawajeeb-مواچيب/id6752831356',
+                    customerAndroid: 'https://play.google.com/store/apps/details?id=com.nerdware.eg.mawajeeb_user',
+                    restaurantIos: 'https://apps.apple.com/eg/app/mawajeeb-restaurant/id6752826045',
+                    restaurantAndroid: 'https://play.google.com/store/apps/details?id=com.nerdware.eg.mawajeeb_restaurant'
+                },
+                featured: true,
+                icon: 'fas fa-utensils',
+                logo: 'assets/apps/logos/mawajeeb.png',
+                mockup: 'assets/apps/mockups/mawajeeb.webp',
+                gradientStart: '#f97316',
+                gradientEnd: '#ef4444',
+                technologies: ['Flutter', 'Dart', 'REST API', 'Push Notifications']
+            },
+            {
+                id: 'clash',
+                title: 'Clash',
+                category: 'Fintech / Digital Wallet / Super-App',
+                client: 'Freelance for Fadaa Marketing',
+                description: 'Delivered an all-in-one digital lifestyle app combining a secure digital wallet with shopping, entertainment, and news. Built as a super-app covering multiple product surfaces in one codebase, featuring bank-level encryption and offline capability.',
+                features: [
+                    'Digital wallet: secure transfers, multiple payment methods, real-time tracking',
+                    'Shopping: integrated marketplace, secure checkout, order tracking, wishlist',
+                    'Entertainment & News: games, interactive content, rewards, personalized feed',
+                    'In-app chat, customer support, and 24/7 help',
+                    'Multi-language support, offline capability, bank-level encryption'
+                ],
+                links: {
+                    googlePlay: 'https://play.google.com/store/apps/details?id=com.fadaamarketing.clash'
+                },
+                featured: true,
+                icon: 'fas fa-wallet',
+                logo: 'assets/apps/logos/clash.png',
+                mockup: 'assets/apps/mockups/clash.webp',
+                gradientStart: '#a855f7',
+                gradientEnd: '#3b82f6',
+                technologies: ['Flutter', 'Super-App', 'Encryption', 'Real-time Chat']
+            },
+            {
+                id: 'imprint-platform',
+                title: 'Imprint Platform',
+                category: 'Printing, Delivery & Operations',
+                client: 'Nerdware',
+                description: 'Built customer and delivery applications from scratch for a print-on-demand and delivery operations platform. Managed REST API integrations and implemented the operational dispatch logic.',
+                features: [
+                    'Authentication & Notifications',
+                    'Delivery workflow and dispatch logic',
+                    'REST API integration'
+                ],
+                metrics: '200+ downloads on Android',
+                links: {
+                    customerIos: 'https://apps.apple.com/ae/app/imprint-print-delivery-more/id6751331570',
+                    customerAndroid: 'https://play.google.com/store/apps/details?id=com.nerdware.eg.imprint',
+                    deliveryIos: 'https://apps.apple.com/ae/app/imprint-delivery/id6751771592',
+                    deliveryAndroid: 'https://play.google.com/store/apps/details?id=com.nerdware.eg.imprint_delivery'
+                },
+                featured: false,
+                icon: 'fas fa-print',
+                logo: 'assets/apps/logos/imprint.png',
+                mockup: 'assets/apps/mockups/imprint.webp',
+                gradientStart: '#06b6d4',
+                gradientEnd: '#3b82f6',
+                technologies: ['Flutter', 'Dart', 'Operations', 'Dispatch Logic']
+            },
+            {
+                id: 'omar-haridy',
+                title: 'Omar Haridy',
+                category: 'Legal Services',
+                client: 'Nerdware',
+                description: 'Developed a legal services app from scratch, including case tracking and client booking for a legal practice. Handled user authentication, booking workflows, and secure document upload.',
+                features: [
+                    'Authentication & Case management',
+                    'File management & Client booking',
+                    'User profiles & REST API integration'
+                ],
+                links: {
+                    googlePlay: 'https://play.google.com/store/apps/details?id=com.nerdware.eg.omar_haridy'
+                },
+                featured: false,
+                icon: 'fas fa-balance-scale',
+                logo: 'assets/apps/logos/omarharidy.png',
+                mockup: 'assets/apps/mockups/omarharidy.webp',
+                gradientStart: '#eab308',
+                gradientEnd: '#f97316',
+                technologies: ['Flutter', 'Dart', 'Case Tracking', 'Booking API']
+            },
+            {
+                id: 'coptic-bakasa',
+                title: 'Coptic Bakasa',
+                category: 'Social Game',
+                description: 'Developed and published a complete multiplayer social game independently, including all game logic and backend.',
+                features: [
+                    'Firebase-powered real-time multiplayer game flow',
+                    'Full game design and development'
+                ],
+                links: {
+                    googlePlay: 'https://play.google.com/store/apps/details?id=com.kdstudios.coptic_bakasa'
+                },
+                featured: false,
+                icon: 'fas fa-gamepad',
+                logo: 'assets/apps/logos/copticbakasa.png',
+                mockup: 'assets/apps/mockups/copticbakasa.webp',
+                gradientStart: '#22c55e',
+                gradientEnd: '#10b981',
+                technologies: ['Flutter', 'Dart', 'Firebase Realtime', 'Game Logic']
             }
         ]
     };
@@ -89,82 +233,10 @@
     // ═══════════════════════════════════════════
 
     const ThemeModule = {
-        toggleBtn: null,
-        theme: 'dark',
-
         init() {
-            this.toggleBtn = getEl('theme-toggle');
-
-            const saved = localStorage.getItem('theme');
-            if (saved) {
-                this.theme = saved;
-            } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-                this.theme = 'light';
-            }
-
-            if (this.theme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-
-            this.updateIcon();
-            on(this.toggleBtn, 'click', (e) => this.toggleTheme(e));
-        },
-
-        toggleTheme(event) {
-            const newTheme = this.theme === 'dark' ? 'light' : 'dark';
-
-            if (!document.startViewTransition) {
-                this.applyTheme(newTheme);
-                return;
-            }
-
-            const x = event.clientX;
-            const y = event.clientY;
-            const endRadius = Math.hypot(
-                Math.max(x, innerWidth - x),
-                Math.max(y, innerHeight - y)
-            );
-
-            const transition = document.startViewTransition(() => {
-                this.applyTheme(newTheme);
-            });
-
-            transition.ready.then(() => {
-                document.documentElement.animate(
-                    {
-                        clipPath: [
-                            `circle(0px at ${x}px ${y}px)`,
-                            `circle(${endRadius}px at ${x}px ${y}px)`
-                        ],
-                    },
-                    {
-                        duration: 500,
-                        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
-                        pseudoElement: '::view-transition-new(root)',
-                    }
-                );
-            });
-        },
-
-        applyTheme(newTheme) {
-            this.theme = newTheme;
-            if (newTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-            }
-            localStorage.setItem('theme', newTheme);
-            this.updateIcon();
-        },
-
-        updateIcon() {
-            if (!this.toggleBtn) return;
-            const icon = this.toggleBtn.querySelector('i');
-            if (!icon) return;
-
-            this.toggleBtn.classList.add('animate');
-            setTimeout(() => this.toggleBtn.classList.remove('animate'), 500);
-            icon.className = this.theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+            // Force light mode theme
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
     };
 
@@ -290,6 +362,7 @@
         init() {
             this.initTypingEffect();
             this.initParticles();
+            this.initImageInteraction();
         },
 
         initTypingEffect() {
@@ -394,17 +467,7 @@
 
     const SkillsModule = {
         init() {
-            const container = getEl('skills-grid');
-            if (!container) return;
-
-            container.innerHTML = Data.skills.map(skill => `
-                <article class="skill-category">
-                    <h3><i class="${skill.icon}"></i>${skill.category}</h3>
-                    <div class="skill-tags">
-                        ${skill.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
-                    </div>
-                </article>
-            `).join('');
+            // Skills section removed
         }
     };
 
@@ -425,29 +488,135 @@
             const sorted = [...Data.projects].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
             container.innerHTML = sorted.map(p => {
                 const tags = p.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('');
-                const img = p.image || `https://via.placeholder.com/600x400/4ecca3/0a0a0f?text=${encodeURIComponent(p.title)}`;
+                
+                // Helper to render multiple custom action buttons
+                const renderButtons = (links) => {
+                    if (!links || Object.keys(links).length === 0) return '';
+                    const linkConfig = {
+                        appStore: { label: 'App Store', icon: 'fab fa-apple', class: 'btn-primary' },
+                        googlePlay: { label: 'Google Play', icon: 'fab fa-google-play', class: 'btn-primary' },
+                        customerIos: { label: 'Customer (iOS)', icon: 'fab fa-apple', class: 'btn-primary' },
+                        customerAndroid: { label: 'Customer (Android)', icon: 'fab fa-google-play', class: 'btn-primary' },
+                        restaurantIos: { label: 'Restaurant (iOS)', icon: 'fab fa-apple', class: 'btn-secondary' },
+                        restaurantAndroid: { label: 'Restaurant (Android)', icon: 'fab fa-google-play', class: 'btn-secondary' },
+                        deliveryIos: { label: 'Delivery (iOS)', icon: 'fab fa-apple', class: 'btn-secondary' },
+                        deliveryAndroid: { label: 'Delivery (Android)', icon: 'fab fa-google-play', class: 'btn-secondary' },
+                        orgSite: { label: 'Official Site', icon: 'fas fa-globe', class: 'btn-ghost' }
+                    };
 
-                // Dynamic button labels and icons
-                const demoLabel = p.links.demo.includes('google.com') ? 'Play Store' : 'View Demo';
-                const demoIcon = p.links.demo.includes('google.com') ? 'fab fa-google-play' : 'fas fa-external-link-alt';
+                    return Object.entries(links)
+                        .map(([key, url]) => {
+                            const conf = linkConfig[key] || { label: 'Link', icon: 'fas fa-external-link-alt', class: 'btn-ghost' };
+                            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="btn ${conf.class}"><i class="${conf.icon}"></i> ${conf.label}</a>`;
+                        })
+                        .join('');
+                };
 
-                const githubLabel = p.links.github.includes('play.google.com') ? 'Play Store' : 'View Code';
-                const githubIcon = p.links.github.includes('github.com') ? 'fab fa-github' : 'fas fa-rocket';
+                const featuresList = p.features && p.features.length > 0
+                    ? `<ul class="project-features-list">
+                           ${p.features.map(f => `<li><i class="fas fa-check-circle"></i> <span>${f}</span></li>`).join('')}
+                       </ul>`
+                    : '';
+
+                const metricsBadge = p.metrics
+                    ? `<div class="project-metrics-badge"><i class="fas fa-arrow-circle-down"></i> <span>${p.metrics}</span></div>`
+                    : '';
+
+                const clientInfo = p.client
+                    ? `<span class="project-client"><i class="fas fa-user-tie"></i> ${p.client}</span>`
+                    : '';
+
+                // Build CSS mockup based on app type (Desktop vs Mobile phone mockup)
+                let mockupHtml = '';
+                const gradientStart = p.gradientStart || 'var(--color-brand-primary)';
+                const gradientEnd = p.gradientEnd || 'var(--color-brand-secondary)';
+                
+                if (p.isDesktop) {
+                    mockupHtml = `
+                        <div class="desktop-mockup-wrapper">
+                            <div class="desktop-frame">
+                                <div class="desktop-header">
+                                    <span class="desktop-dot red"></span>
+                                    <span class="desktop-dot yellow"></span>
+                                    <span class="desktop-dot green"></span>
+                                    <div class="desktop-address-bar">saintdidymus.school</div>
+                                </div>
+                                <div class="desktop-screen" style="background: linear-gradient(135deg, ${gradientStart}33 0%, ${gradientEnd}11 100%)">
+                                    ${p.mockup ? `<img src="${p.mockup}" class="desktop-screenshot" alt="${p.title}" loading="lazy">` : `
+                                    <div class="desktop-app-body">
+                                        <div class="phone-app-icon-wrapper" style="color: ${gradientStart}">
+                                            <i class="${p.icon}"></i>
+                                        </div>
+                                        <h4 class="phone-app-name">${p.title}</h4>
+                                        <span class="phone-app-category">${p.category}</span>
+                                        <div class="desktop-dashboard-preview">
+                                            <div class="dash-bar"></div>
+                                            <div class="dash-bar short"></div>
+                                        </div>
+                                    </div>
+                                    `}
+                                </div>
+                            </div>
+                        </div>`;
+                } else {
+                    mockupHtml = `
+                        <div class="phone-mockup-wrapper">
+                            <div class="phone-frame">
+                                <div class="phone-speaker"></div>
+                                <div class="phone-screen" style="background: linear-gradient(135deg, ${gradientStart}33 0%, ${gradientEnd}11 100%)">
+                                    <div class="phone-app-header">
+                                        <span class="phone-app-time">9:41</span>
+                                        <div class="phone-app-battery"><i class="fas fa-battery-three-quarters"></i></div>
+                                    </div>
+                                    ${p.mockup ? `<img src="${p.mockup}" class="phone-screenshot" alt="${p.title}" loading="lazy">` : `
+                                    <div class="phone-app-body">
+                                        <div class="phone-app-icon-wrapper" style="color: ${gradientStart}">
+                                            <i class="${p.icon}"></i>
+                                        </div>
+                                        <h4 class="phone-app-name">${p.title}</h4>
+                                        <span class="phone-app-category">${p.category}</span>
+                                        <div class="phone-app-preview-cards">
+                                            <div class="preview-card-item"></div>
+                                            <div class="preview-card-item short"></div>
+                                        </div>
+                                    </div>
+                                    `}
+                                </div>
+                                <div class="phone-home-indicator"></div>
+                            </div>
+                        </div>`;
+                }
+
+                const logoHtml = p.logo 
+                    ? `<img src="${p.logo}" class="project-logo" alt="${p.title} Logo">` 
+                    : `<div class="project-logo-fallback"><i class="${p.icon}"></i></div>`;
 
                 return `
                     <article class="project-card ${p.featured ? 'featured' : ''}" data-project-id="${p.id}">
-                        <div class="project-image">
-                            <img src="${img}" alt="${p.title}" loading="lazy">
-                            <div class="project-overlay">
-                                ${p.links.demo ? `<a href="${p.links.demo}" target="_blank" class="btn btn-primary"><i class="${demoIcon}"></i> ${demoLabel}</a>` : ''}
-                                ${p.links.github ? `<a href="${p.links.github}" target="_blank" class="btn btn-ghost"><i class="${githubIcon}"></i> ${githubLabel}</a>` : ''}
-                            </div>
+                        <div class="project-visual">
+                            ${mockupHtml}
                         </div>
                         <div class="project-content">
-                            <span class="project-category"><i class="fas fa-folder"></i>${p.category}</span>
+                            <div class="project-header-info">
+                                ${logoHtml}
+                                <div class="project-meta-details">
+                                    <span class="project-category"><i class="fas fa-folder"></i>${p.category}</span>
+                                    ${clientInfo}
+                                </div>
+                            </div>
                             <h3 class="project-title">${p.title}</h3>
                             <p class="project-description">${p.description}</p>
-                            <div class="project-tech">${tags}</div>
+                            
+                            ${featuresList}
+                            
+                            <div class="project-footer-meta">
+                                <div class="project-tech">${tags}</div>
+                                ${metricsBadge}
+                            </div>
+                            
+                            <div class="project-buttons">
+                                ${renderButtons(p.links)}
+                            </div>
                         </div>
                     </article>`;
             }).join('');
@@ -469,7 +638,6 @@
             }
 
             container.innerHTML = Data.packages.map(pkg => this.renderCard(pkg)).join('');
-            this.initTiltEffect();
         },
 
         renderCard(pkg) {
@@ -500,20 +668,6 @@
                 </article>`;
         },
 
-        initTiltEffect() {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            $$('.package-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateY(-10px) scale(1.02)`;
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-                });
-            });
-        }
     };
 
     // ═══════════════════════════════════════════
@@ -534,7 +688,7 @@
         },
 
         showAll() {
-            $$('.skill-category, .project-card, .package-card').forEach(el => el.classList.add('animate-in'));
+            $$('.skill-category, .project-card, .package-card, .timeline-item, .education-card, .context-card').forEach(el => el.classList.add('animate-in'));
             $$('.stat-number').forEach(s => s.textContent = s.dataset.target);
         },
 
@@ -550,7 +704,7 @@
         },
 
         observeElements() {
-            $$('.skill-category, .project-card, .package-card').forEach((el, i) => {
+            $$('.skill-category, .project-card, .package-card, .timeline-item, .education-card, .context-card').forEach((el, i) => {
                 el.style.transitionDelay = `${(i % 3) * 0.1}s`;
                 this.observer.observe(el);
             });
@@ -607,7 +761,6 @@
 
         // Features
         HeroModule.init();
-        SkillsModule.init();
         ProjectsModule.init();
         PackagesModule.init();
 

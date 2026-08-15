@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Kamal Ayman | Flutter Developer & Mobile App Expert</title>
+    <title>Kamal Ayman | Software Engineer & Mobile Application Developer</title>
     <meta name="title"
-        content="Kamal Ayman | Flutter Developer & Mobile App Expert">
+        content="Kamal Ayman | Software Engineer & Mobile Application Developer">
     <meta name="description"
-        content="Professional Flutter Developer crafting beautiful, high-performance mobile applications. Specialized in cross-platform development, clean architecture, and creating exceptional user experiences.">
+        content="Software Engineer & Mobile Application Developer with 3 years of experience building and shipping production mobile apps across iOS, Android, and Flutter.">
     <meta name="keywords"
-        content="Flutter Developer, Mobile App Developer, Dart, Cross-platform Development, iOS, Android, UI/UX, Open Source">
+        content="Kamal Ayman, Software Engineer, Mobile Application Developer, Flutter, Dart, iOS, Android, Mobile Developer, Cairo">
     <meta name="author" content="Kamal Ayman">
     <meta name="robots" content="index, follow">
 
@@ -20,20 +20,20 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kamal-ayman.github.io/">
     <meta property="og:title"
-        content="Kamal Ayman | Flutter Developer & Mobile App Expert">
+        content="Kamal Ayman | Software Engineer & Mobile Application Developer">
     <meta property="og:description"
-        content="Professional Flutter Developer crafting beautiful, high-performance mobile applications.">
+        content="Software Engineer & Mobile Application Developer with 3 years of experience building and shipping production mobile apps across iOS, Android, and Flutter.">
     <meta property="og:image" content="https://github.com/kamal-ayman.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kamal Ayman | Flutter Developer">
+    <meta name="twitter:title" content="Kamal Ayman | Software Engineer">
     <meta name="twitter:description"
-        content="Professional Flutter Developer crafting beautiful, high-performance mobile applications.">
+        content="Software Engineer & Mobile Application Developer with 3 years of experience building and shipping production mobile apps across iOS, Android, and Flutter.">
     <meta name="twitter:image" content="https://github.com/kamal-ayman.png">
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/profile.jpg" type="image/jpeg">
+    <link class="favicon" rel="icon" href="assets/profile.jpg" type="image/jpeg">
     <link rel="apple-touch-icon" href="assets/profile.jpg">
 
     <!-- Theme Color -->
@@ -44,9 +44,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- Icons - Using newer version for Flutter icon support -->
@@ -59,8 +58,9 @@
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/hero.css">
     <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/skills.css">
     <link rel="stylesheet" href="styles/projects.css">
+    <link rel="stylesheet" href="styles/timeline.css">
+    <link rel="stylesheet" href="styles/education.css">
     <link rel="stylesheet" href="styles/packages.css">
     <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="styles/responsive.css">
@@ -85,20 +85,17 @@
                             role="menuitem">Home</a></li>
                     <li role="none"><a href="#about" class="nav-link"
                             role="menuitem">About</a></li>
-                    <li role="none"><a href="#skills" class="nav-link"
-                            role="menuitem">Skills</a></li>
                     <li role="none"><a href="#projects" class="nav-link"
                             role="menuitem">Projects</a></li>
+                    <li role="none"><a href="#experience" class="nav-link"
+                            role="menuitem">Experience</a></li>
+                    <li role="none"><a href="#education" class="nav-link"
+                            role="menuitem">Education</a></li>
                     <li role="none"><a href="#packages" class="nav-link"
                             role="menuitem">Packages</a></li>
                     <li role="none"><a href="#contact" class="nav-link"
                             role="menuitem">Contact</a></li>
                 </ul>
-
-                <button class="theme-toggle" id="theme-toggle"
-                    aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
 
                 <button class="hamburger" id="hamburger"
                     aria-label="Toggle Menu" aria-expanded="false">
@@ -129,10 +126,9 @@
                     </div>
 
                     <p class="hero-description">
-                        Crafting beautiful, high-performance mobile applications
-                        with Flutter.
-                        Passionate about clean code, exceptional UI/UX, and
-                        building impactful open source projects.
+                        Software Engineer with 3 years of experience building and shipping production mobile applications. 
+                        Delivered 7+ apps across the App Store and Google Play spanning food delivery, fintech, government, 
+                        education, legal services, and gaming — from architecture through client collaboration to release.
                     </p>
 
                     <div class="hero-buttons">
@@ -162,6 +158,12 @@
                             target="_blank" rel="noopener noreferrer"
                             class="social-link" aria-label="Pub.dev Profile">
                             <i class="fas fa-box"></i>
+                        </a>
+                        <a href="mailto:kamal.ayman522@gmail.com" class="social-link" aria-label="Email Me">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+201201250706" class="social-link" aria-label="Call Me">
+                            <i class="fas fa-phone"></i>
                         </a>
                     </div>
                 </div>
@@ -206,94 +208,21 @@
 
                 <div class="about-content">
                     <div class="about-image">
-                        <div class="code-window">
-                            <div class="window-header">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                                <span class="file-name">developer.dart</span>
-                            </div>
-                            <pre class="code-content"><span class="keyword">class</span> <span class="class-name">Developer</span> {
-  <span class="keyword">final</span> name = <span class="string">"Kamal Ayman"</span>;
-  <span class="keyword">final</span> role = <span class="string">"Flutter Developer"</span>;
-  <span class="keyword">final</span> location = <span class="string">"Egypt"</span>;
-  
-  <span class="keyword">List</span>&lt;String&gt; <span class="function">getSkills</span>() =&gt; [
-    <span class="string">"Flutter"</span>, <span class="string">"Dart"</span>,
-    <span class="string">"Firebase"</span>, <span class="string">"Clean Arch"</span>,
-  ];
-
-  <span class="keyword">String</span> <span class="function">currentFocus</span>() =&gt;
-    <span class="string">"Building amazing apps!"</span>;
-}</pre>
+                        <div class="about-img-wrapper">
+                            <img src="assets/profile.jpg" alt="Kamal Ayman Kamal" loading="lazy">
                         </div>
                     </div>
 
                     <div class="about-text">
                         <p>
-                            I'm a <span class="highlight">Flutter
-                                Developer</span> who transforms ideas into
-                            polished, high-performance mobile applications.
-                            Specializing in cross-platform
-                            development, I build apps that users love and
-                            clients trust—shipping seamlessly
-                            on both iOS and Android.
+                            I'm a <span class="highlight">Software Engineer & Mobile Application Developer</span> who transforms complex concepts into polished, production-ready mobile applications. Specializing in cross-platform development with Flutter, Android, and iOS, I lead projects from architecture to client collaboration to store release.
                         </p>
                         <p>
-                            With <span class="highlight">3+ years</span> of
-                            hands-on experience, I've developed
-                            deep expertise in clean architecture, state
-                            management, and creating pixel-perfect UIs.
-                            I don't just write code; I craft solutions designed
-                            for scalability and long-term
-                            maintainability.
+                            With <span class="highlight">3 years</span> of hands-on experience, I have delivered <span class="highlight">7+ apps</span> across the App Store and Google Play, spanning food delivery, fintech, government, education, legal services, and gaming for clients across Egypt and the UAE.
                         </p>
                         <p>
-                            Beyond client work, I actively contribute to the
-                            Flutter ecosystem—publishing packages
-                            on <span class="highlight">pub.dev</span> and
-                            helping fellow developers through open source.
-                            Let's build something amazing together.
+                            I design apps with scalability in mind, using clean architecture, solid state management, and custom animations. Let's collaborate to build something remarkable.
                         </p>
-
-                        <div class="about-services">
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h4>Mobile Development</h4>
-                                    <p>Cross-platform apps with Flutter</p>
-                                </div>
-                            </div>
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <i class="fas fa-palette"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h4>UI/UX Design</h4>
-                                    <p>Beautiful, intuitive interfaces</p>
-                                </div>
-                            </div>
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <i class="fas fa-code-branch"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h4>Open Source</h4>
-                                    <p>Active contributor & maintainer</p>
-                                </div>
-                            </div>
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <i class="fas fa-cubes"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h4>Clean Architecture</h4>
-                                    <p>Scalable, maintainable code</p>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="about-stats">
                             <div class="stat">
@@ -303,74 +232,15 @@
                             </div>
                             <div class="stat">
                                 <span class="stat-number"
-                                    data-target="15">0</span>
-                                <span class="stat-label">Projects
-                                    Completed</span>
+                                    data-target="7">0</span>
+                                <span class="stat-label">Apps Shipped</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number"
                                     data-target="1">0</span>
-                                <span class="stat-label">Packages
-                                    Published</span>
+                                <span class="stat-label">Package Published</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================
-             SKILLS SECTION
-             ============================================ -->
-        <section class="skills" id="skills" aria-labelledby="skills-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">
-                        <i class="fas fa-tools"></i>
-                        My Expertise
-                    </span>
-                    <h2 class="section-title" id="skills-heading">
-                        <span class="title-number">02.</span>Skills &
-                        Technologies
-                    </h2>
-                    <p class="section-subtitle">
-                        Technologies and tools I use to bring ideas to life
-                    </p>
-                </div>
-
-                <div class="skills-grid" id="skills-grid">
-                    <!-- Skills will be dynamically rendered by JavaScript -->
-                </div>
-
-                <div class="tech-icons">
-                    <div class="tech-icon" data-tooltip="Flutter">
-                        <svg viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor">
-                            <path
-                                d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357L14.314 0zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37l-.002-.001z" />
-                        </svg>
-                    </div>
-                    <div class="tech-icon" data-tooltip="Firebase">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <div class="tech-icon" data-tooltip="Git">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <div class="tech-icon" data-tooltip="GitHub">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="tech-icon" data-tooltip="VS Code">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="tech-icon" data-tooltip="Android">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <div class="tech-icon" data-tooltip="iOS">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <div class="tech-icon" data-tooltip="Figma">
-                        <i class="fab fa-figma"></i>
                     </div>
                 </div>
             </div>
@@ -388,16 +258,153 @@
                         My Portfolio
                     </span>
                     <h2 class="section-title" id="projects-heading">
-                        <span class="title-number">03.</span>Featured Projects
+                        <span class="title-number">02.</span>Featured Projects
                     </h2>
                     <p class="section-subtitle">
-                        A selection of mobile applications and tools I've
-                        developed
+                        A selection of mobile applications and tools I've developed
                     </p>
                 </div>
 
                 <div class="projects-grid" id="projects-grid">
                     <!-- Projects will be dynamically rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             EXPERIENCE SECTION (TIMELINE)
+             ============================================ -->
+        <section class="experience" id="experience" aria-labelledby="experience-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">
+                        <i class="fas fa-briefcase"></i>
+                        My Journey
+                    </span>
+                    <h2 class="section-title" id="experience-heading">
+                        <span class="title-number">03.</span>Work Experience
+                    </h2>
+                    <p class="section-subtitle">
+                        A timeline of my professional roles and contributions
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Freelance -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jan 2023 – Present</div>
+                        <div class="timeline-content">
+                            <h3 class="role-title">Software Engineer (Freelance)</h3>
+                            <span class="company-name"><i class="fas fa-globe"></i> Remote</span>
+                            <ul class="role-bullets">
+                                <li>Build and ship production mobile apps from scratch for multiple clients, from architecture through App Store/Google Play release.</li>
+                                <li>Integrate REST APIs and third-party services; maintain and optimize apps post-launch in direct collaboration with clients.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nerdware -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Jun 2024 – May 2026</div>
+                        <div class="timeline-content">
+                            <h3 class="role-title">Software Engineer / Flutter Developer</h3>
+                            <span class="company-name"><i class="fas fa-building"></i> Nerdware — Remote, Full-Time</span>
+                            <ul class="role-bullets">
+                                <li>Developed production mobile apps from scratch for multiple clients, working closely with designers and backend developers.</li>
+                                <li>Integrated REST APIs, improved performance and stability, and led release management. Key projects: <strong>Mawajeeb, Imprint, Omar Haridy</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- UE CNC Industries -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">May 2023 – Oct 2023</div>
+                        <div class="timeline-content">
+                            <h3 class="role-title">Software Engineer</h3>
+                            <span class="company-name"><i class="fas fa-industry"></i> UE CNC Industries — On-site, Full-Time</span>
+                            <ul class="role-bullets">
+                                <li>Maintained and enhanced internal enterprise software solutions with cross-functional teams.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             EDUCATION SECTION
+             ============================================ -->
+        <section class="education" id="education" aria-labelledby="education-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        Learning & Background
+                    </span>
+                    <h2 class="section-title" id="education-heading">
+                        <span class="title-number">04.</span>Education
+                    </h2>
+                    <p class="section-subtitle">
+                        Academic degrees and technical education
+                    </p>
+                </div>
+
+                <div class="education-grid">
+                    <!-- Benha University -->
+                    <div class="education-card">
+                        <div class="education-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="education-content">
+                            <span class="education-duration">2022 – 2026</span>
+                            <h3 class="degree-title">Bachelor of Computer Science & Artificial Intelligence</h3>
+                            <span class="school-name">Benha University</span>
+                            <p class="education-status"><i class="fas fa-check-circle"></i> Graduated</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="additional-context">
+                    <h3 class="additional-title"><i class="fas fa-award"></i> Activities & Key Achievements</h3>
+                    <div class="context-grid">
+                        <div class="context-card">
+                            <div class="context-header">
+                                <i class="fab fa-google"></i>
+                                <h4>GDG On Campus — Flutter Instructor</h4>
+                            </div>
+                            <span class="context-date">Nov 2024 – May 2026</span>
+                            <p>Delivered Flutter sessions, mentored students, and organized technical events at Benha University.</p>
+                        </div>
+
+                        <div class="context-card">
+                            <div class="context-header">
+                                <i class="fas fa-trophy"></i>
+                                <h4>ECPC Competitor</h4>
+                            </div>
+                            <span class="context-date">Apr 2023</span>
+                            <p>Competitor in the Egyptian Collegiate Programming Contest (ECPC).</p>
+                        </div>
+
+                        <div class="context-card">
+                            <div class="context-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Cybersecurity Background</h4>
+                            </div>
+                            <p>Background in cybersecurity studies, complementing a primary focus on secure mobile application development.</p>
+                        </div>
+
+                        <div class="context-card">
+                            <div class="context-header">
+                                <i class="fas fa-language"></i>
+                                <h4>Bilingual Capability</h4>
+                            </div>
+                            <p>Native in Arabic, and very good in English — enabling effective collaboration with international and freelance clients.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -414,11 +421,10 @@
                         Open Source
                     </span>
                     <h2 class="section-title" id="packages-heading">
-                        <span class="title-number">04.</span>Flutter Packages
+                        <span class="title-number">05.</span>Flutter Packages
                     </h2>
                     <p class="section-subtitle">
-                        Open source Flutter packages I've created and published
-                        on pub.dev
+                        Open source Flutter packages I've created and published on pub.dev
                     </p>
                 </div>
 
@@ -440,32 +446,29 @@
                         Let's Connect
                     </span>
                     <h2 class="section-title" id="contact-heading">
-                        <span class="title-number">05.</span>Get In Touch
+                        <span class="title-number">06.</span>Get In Touch
                     </h2>
                     <p class="section-subtitle">
-                        Have a project in mind or want to collaborate?
-                        I'm always open to discussing new opportunities and
-                        ideas.
+                        Have a project in mind or want to collaborate? I'm always open to discussing new opportunities.
                     </p>
                 </div>
 
                 <div class="contact-cta">
-                    <a href="https://github.com/kamal-ayman" target="_blank"
-                        rel="noopener noreferrer" class="btn btn-primary">
-                        <i class="fab fa-github"></i>
-                        GitHub Profile
+                    <a href="mailto:kamal.ayman522@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        kamal.ayman522@gmail.com
                     </a>
-                    <a href="https://linkedin.com/in/kamal-ayman"
-                        target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary">
+                    <a href="tel:+201201250706" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        +20 120 125 0706
+                    </a>
+                    <a href="https://linkedin.com/in/kamal-ayman" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
                         <i class="fab fa-linkedin-in"></i>
-                        Connect on LinkedIn
+                        LinkedIn
                     </a>
-                    <a href="https://buymeacoffee.com/kamalayman"
-                        target="_blank" rel="noopener noreferrer"
-                        class="btn btn-coffee">
-                        <i class="fas fa-mug-hot"></i>
-                        Buy Me a Coffee
+                    <a href="https://github.com/kamal-ayman" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                        <i class="fab fa-github"></i>
+                        GitHub
                     </a>
                 </div>
 
@@ -519,8 +522,6 @@
                         <i class="fas fa-box"></i>
                     </a>
                 </div>
-                <p class="copyright">&copy; 2024 Kamal Ayman. All rights
-                    reserved.</p>
             </div>
         </div>
     </footer>

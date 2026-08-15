@@ -73,7 +73,7 @@
 }
 
 .contact-card:hover {
-    border-color: hsla(161, 62%, 55%, 0.3);
+    border-color: hsla(226, 80%, 45%, 0.2);
     transform: translateX(8px);
 }
 
@@ -83,7 +83,7 @@
     justify-content: center;
     width: 50px;
     height: 50px;
-    background: hsla(161, 62%, 55%, 0.1);
+    background: hsla(226, 80%, 45%, 0.08);
     border-radius: var(--radius-lg);
     color: var(--color-brand-primary);
     font-size: var(--text-xl);
@@ -169,7 +169,7 @@
 .form-textarea:focus {
     outline: none;
     border-color: var(--color-brand-primary);
-    box-shadow: 0 0 0 3px hsla(161, 62%, 55%, 0.1);
+    box-shadow: 0 0 0 3px hsla(226, 80%, 45%, 0.08);
 }
 
 .form-input::placeholder,
@@ -202,11 +202,11 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-5);
-    background: hsla(120, 60%, 50%, 0.1);
-    border: 1px solid hsla(120, 60%, 50%, 0.2);
+    background: hsla(175, 80%, 38%, 0.08);
+    border: 1px solid hsla(175, 80%, 38%, 0.2);
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
-    color: hsl(120, 60%, 60%);
+    color: var(--color-brand-secondary);
     margin-bottom: var(--space-8);
 }
 
@@ -214,7 +214,7 @@
     content: '';
     width: 8px;
     height: 8px;
-    background: hsl(120, 60%, 60%);
+    background: var(--color-brand-secondary);
     border-radius: 50%;
     animation: statusPulse 2s ease-in-out infinite;
 }

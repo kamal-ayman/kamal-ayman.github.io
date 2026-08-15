@@ -19,9 +19,9 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 80% 50% at 20% 40%, hsla(161, 62%, 55%, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 60%, hsla(191, 100%, 50%, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 30% at 40% 80%, hsla(270, 70%, 65%, 0.05) 0%, transparent 50%);
+        radial-gradient(ellipse 80% 50% at 20% 40%, hsla(226, 80%, 45%, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, hsla(175, 80%, 38%, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 30% at 40% 80%, hsla(255, 50%, 45%, 0.02) 0%, transparent 50%);
     animation: heroGradientShift 15s ease-in-out infinite;
     pointer-events: none;
 }
@@ -60,7 +60,7 @@
     width: 600px;
     height: 600px;
     background: radial-gradient(circle,
-            hsla(161, 62%, 55%, 0.04) 0%,
+            hsla(226, 80%, 45%, 0.03) 0%,
             transparent 60%);
     animation: heroGlow 8s ease-in-out infinite;
     pointer-events: none;
@@ -261,7 +261,7 @@
 .typed-text {
     font-weight: var(--font-semibold);
     color: var(--color-brand-primary);
-    text-shadow: 0 0 30px hsla(161, 75%, 50%, 0.3);
+    text-shadow: 0 0 30px hsla(226, 80%, 45%, 0.15);
 }
 
 .cursor {
@@ -355,13 +355,13 @@
     z-index: 2;
     border: 4px solid var(--bg-base);
     box-shadow: var(--shadow-lg),
-        0 0 60px hsla(161, 62%, 55%, 0.15);
+        0 0 60px hsla(226, 80%, 45%, 0.1);
     transition: var(--transition-slow);
 }
 
 .image-wrapper:hover img {
     box-shadow: var(--shadow-lg),
-        0 0 80px hsla(161, 62%, 55%, 0.25);
+        0 0 80px hsla(226, 80%, 45%, 0.18);
 }
 
 /* Animated Border Ring */
@@ -380,7 +380,7 @@
     content: '';
     position: absolute;
     inset: -8px;
-    border: 1px dashed hsla(161, 62%, 55%, 0.3);
+    border: 1px dashed hsla(226, 80%, 45%, 0.15);
     border-radius: 50%;
     animation: rotateBorder 20s linear infinite reverse;
 }
@@ -389,7 +389,7 @@
     content: '';
     position: absolute;
     inset: -20px;
-    border: 1px solid hsla(191, 100%, 50%, 0.1);
+    border: 1px solid hsla(175, 80%, 38%, 0.06);
     border-radius: 50%;
     animation: rotateBorder 30s linear infinite;
 }
