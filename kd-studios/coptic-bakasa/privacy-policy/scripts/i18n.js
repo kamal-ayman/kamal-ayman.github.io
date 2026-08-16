@@ -16,13 +16,13 @@ const I18n = (() => {
         ar: {
             pageTitle: 'سياسة الخصوصية | بكاسة قبطي — KD Studios',
             title: 'سياسة <span class="accent">الخصوصية</span>',
-            meta: 'آخر تحديث: 11 فبراير 2026',
+            meta: 'آخر تحديث: 16 أغسطس 2026',
             toggleLabel: 'EN',
         },
         en: {
             pageTitle: 'Privacy Policy | Bakasa Coptic — KD Studios',
             title: 'Privacy <span class="accent">Policy</span>',
-            meta: 'Last Updated: February 11, 2026',
+            meta: 'Last Updated: August 16, 2026',
             toggleLabel: 'عربي',
         },
     };
