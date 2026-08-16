@@ -151,7 +151,7 @@
                         <h3>ج. أذونات الجهاز</h3>
                         <p>قد يطلب التطبيق الأذونات التالية:</p>
                         <ul>
-                            <li><strong>الكاميرا ومعرض الصور</strong>: تُستخدم الكاميرا (<code>CAMERA</code>) لمسح رموز الاستجابة السريعة (QR Codes) لتحميل واستيراد فئات وكلمات اللعبة بسهولة وبشكل فوري، بالإضافة إلى إمكانية اختيار أو التقاط صورة شخصية لملف اللاعب. إذن الكاميرا اختياري تمامًا، ولا يتم طلبه إلا عند فتح ماسح الـ QR أو تخصيص الصورة، ولا تتطلب اللعبة وجود كاميرا لتعمل (حيث تم ضبط <code>android.hardware.camera</code> كإذن اختياري).</li>
+                            <li><strong>إذن الكاميرا</strong>: يطلب التطبيق إذن الكاميرا (<code>android.permission.CAMERA</code>) <strong>فقط وحصريًا لمسح رموز الاستجابة السريعة (QR Codes) لاستيراد فئات اللعبة المخصصة محليًا</strong>. لا يتم جمع أو حفظ أو تخزين أو نقل أي صور أو مقاطع فيديو أو تسجيلات كاميرا على الإطلاق. إذن الكاميرا اختياري تمامًا ولا يتم طلبه إلا عند اختيار مسح رمز QR، كما أن وجود الكاميرا ليس شرطًا إلزاميًا لتشغيل التطبيق (حيث تم ضبط <code>android.hardware.camera</code> كخاصية اختيارية <code>android:required="false"</code>).</li>
                             <li><strong>الوصول إلى الإنترنت</strong>: مطلوب
                                 لتنزيل الفئات المشتركة، وإرسال تقارير الأعطال وبيانات التحليلات وعرض
                                 الإعلانات عبر AdMob.</li>
@@ -170,8 +170,8 @@
                             <li><strong>توفير وتحسين تجربة اللعبة</strong>، بما
                                 في ذلك إدارة ملفات تعريف اللاعبين، وجلسات اللعب،
                                 والنتائج، ومكافآت الدخول اليومي.</li>
-                            <li><strong>مسح رموز QR واستيراد الفئات</strong>:
-                                استخدام الكاميرا لمسح رموز QR وتنزيل حزم الفئات المخصصة بسهولة إلى جهازك.</li>
+                            <li><strong>مسح رموز QR لاستيراد الفئات محليًا</strong>:
+                                استخدام الكاميرا لمسح رموز QR واستيراد فئات الكلمات المخصصة محليًا وبشكل فوري على جهازك دون جمع أو حفظ أو نقل أي صور أو تسجيلات.</li>
                             <li><strong>الحفاظ على استقرار التطبيق</strong> من
                                 خلال مراقبة الأعطال وإصلاح الأخطاء عبر Sentry.
                             </li>
@@ -361,7 +361,7 @@
                         <h3>C. Device Permissions</h3>
                         <p>The App may request the following permissions:</p>
                         <ul>
-                            <li><strong>Camera & Photo Gallery</strong>: The camera permission (<code>CAMERA</code>) is used to scan QR codes for quick and easy importing/downloading of custom word categories into the game, as well as optionally capturing or selecting a custom player profile avatar. This permission is completely optional, only requested when actively opening the QR code scanner or customizing your avatar, and camera hardware is not strictly required (<code>android.hardware.camera</code> is marked optional).</li>
+                            <li><strong>Camera Permission</strong>: The App requests Camera permission (<code>android.permission.CAMERA</code>) <strong>solely to scan QR codes for importing custom game categories locally</strong>. No photos, videos, or camera recordings are collected, stored, or transmitted. Camera hardware is not strictly required (<code>android.hardware.camera</code> with <code>android:required="false"</code> is optional). Camera access is entirely optional and only requested when you actively choose to scan a category QR code.</li>
                             <li><strong>Internet Access</strong>: Required for
                                 downloading shared categories, crash reports, analytics, and serving ads.</li>
                             <li><strong>Push Notifications</strong>: Used for
@@ -378,8 +378,8 @@
                             <li><strong>Provide and improve the game
                                     experience</strong>, including managing
                                 player profiles, sessions, and scores.</li>
-                            <li><strong>Scan QR Codes & Import Categories</strong>:
-                                Use the device camera to scan QR codes and download custom category packs directly to your device.</li>
+                            <li><strong>Scan QR Codes for Local Category Import</strong>:
+                                Use the device camera solely to scan QR codes in real-time for importing custom word categories locally to your device without capturing, storing, or transmitting any photos or recordings.</li>
                             <li><strong>Maintain app stability</strong> through
                                 Sentry crash monitoring.</li>
                             <li><strong>Understand usage trends</strong> through
