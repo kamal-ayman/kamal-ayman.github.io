@@ -111,49 +111,39 @@
                     <div class="section-block">
                         <h2>2. المعلومات التي نجمعها</h2>
 
-                        <h3>أ. المعلومات التي تقدمها</h3>
-                        <p>يتم تخزين جميع بيانات اللاعبين <strong>محليًا على
-                                جهازك</strong> ولا يتم نقلها أبدًا إلى خوادمنا:
-                        </p>
+                        <h3>أ. الحسابات والمصادقة (Accounts & Authentication)</h3>
+                        <p>يتيح التطبيق إمكانية تسجيل الدخول الاختياري عبر حساب Google لتسهيل إدارة الملف الشخصي ومزامنة النقاط ولوحات الصدارة عبر Google Play Games. يمكنك دائمًا استخدام كافة ميزات اللعبة دون تسجيل الدخول كـ "ضيف" (Guest).</p>
+
+                        <h3>ب. أذونات الكاميرا والصور (Camera & Photos Permissions)</h3>
                         <ul>
-                            <li><strong>ملفات تعريف اللاعبين</strong>: الأسماء
-                                والصور الرمزية التي تنشئها للمشاركين في اللعبة.
-                            </li>
-                            <li><strong>تفضيلات اللعبة</strong>: اختيار اللغة،
-                                المظهر (الوضع الفاتح/الداكن)، إعدادات الصوت
-                                والاهتزاز، وتفضيلات المؤقت، ومستوى الصعوبة.</li>
+                            <li><strong>إذن الكاميرا (Camera Permission)</strong>: يطلب التطبيق إذن الكاميرا (<code>android.permission.CAMERA</code>) <strong>فقط وحصريًا لمسح رموز الاستجابة السريعة (QR Codes)</strong> لاستيراد فئات اللعبة المخصصة محليًا في الوقت الفعلي. التطبيق لا يقوم بجمع أو تسجيل أو حفظ أو نقل أي صور أو مقاطع فيديو عبر الكاميرا إلى أي خادم خارجي. إذن الكاميرا اختياري تمامًا، ولا يتطلب تشغيل اللعبة وجود كاميرا (حيث تم ضبط <code>android.hardware.camera</code> كخاصية اختيارية <code>android:required="false"</code>).</li>
+                            <li><strong>الصور المحلية (Local Photos)</strong>: أي صور يتم اختيارها من المعرض كأفاتار أو لفئات الكلمات المخصصة تُحفظ محليًا فقط داخل مساحة تخزين التطبيق على جهازك ولا يتم رفعها أو نقلها خارج الجهاز إطلاقًا.</li>
                         </ul>
 
-                        <h3>ب. المعلومات التي يتم جمعها تلقائيًا</h3>
+                        <h3>ج. المعلومات التي يتم جمعها تلقائيًا</h3>
                         <p>للحفاظ على جودة التطبيق واستقراره، يتم جمع بعض
                             البيانات التقنية تلقائيًا:</p>
                         <ul>
                             <li><strong>تقارير الأعطال وبيانات الأداء</strong>:
                                 عندما يواجه التطبيق خطأً أو تعطلًا، يتم إرسال
-                                معلومات التشخيص — بما في ذلك طراز الجهاز، وإصدار
-                                نظام التشغيل، وسجلات الخطأ — إلى
+                                معلومات التشخيص إلى
                                 <strong>Sentry</strong>، خدمة مراقبة الأخطاء
                                 لدينا.
                             </li>
                             <li><strong>بيانات التحليلات</strong>: نستخدم
                                 <strong>Google Firebase Analytics</strong> لفهم
-                                أنماط الاستخدام العامة، مثل الميزات الأكثر
-                                استخدامًا. هذه البيانات مجمعة ولا تحدد هويتك
+                                أنماط الاستخدام العامة. هذه البيانات مجمعة ولا تحدد هويتك
                                 شخصيًا.
                             </li>
                             <li><strong>بيانات الإعلانات</strong>: نستخدم
-                                <strong>Google AdMob</strong> لعرض الإعلانات. قد
-                                تقوم هذه الخدمة بجمع واستخدام معرف جهازك الفريد
-                                لتقديم إعلانات مخصصة.
+                                <strong>Google AdMob</strong> لعرض الإعلانات ودعم التطبيق مجانًا.
                             </li>
                         </ul>
 
-                        <h3>ج. أذونات الجهاز</h3>
-                        <p>قد يطلب التطبيق الأذونات التالية:</p>
+                        <h3>د. أذونات الجهاز الأخرى</h3>
                         <ul>
-                            <li><strong>إذن الكاميرا</strong>: يطلب التطبيق إذن الكاميرا (<code>android.permission.CAMERA</code>) <strong>فقط وحصريًا لمسح رموز الاستجابة السريعة (QR Codes) لاستيراد فئات اللعبة المخصصة محليًا</strong>. لا يتم جمع أو حفظ أو تخزين أو نقل أي صور أو مقاطع فيديو أو تسجيلات كاميرا على الإطلاق. إذن الكاميرا اختياري تمامًا ولا يتم طلبه إلا عند اختيار مسح رمز QR، كما أن وجود الكاميرا ليس شرطًا إلزاميًا لتشغيل التطبيق (حيث تم ضبط <code>android.hardware.camera</code> كخاصية اختيارية <code>android:required="false"</code>).</li>
                             <li><strong>الوصول إلى الإنترنت</strong>: مطلوب
-                                لتنزيل الفئات المشتركة، وإرسال تقارير الأعطال وبيانات التحليلات وعرض
+                                لتنزيل الفئات العامة، وإرسال تقارير الأعطال، وبيانات التحليلات، وتسجيل الدخول الاختياري، وعرض
                                 الإعلانات عبر AdMob.</li>
                             <li><strong>الإشعارات</strong>: تستخدم لإرسال
                                 تذكيرات وتحديثات متعلقة باللعبة عبر
@@ -170,6 +160,7 @@
                             <li><strong>توفير وتحسين تجربة اللعبة</strong>، بما
                                 في ذلك إدارة ملفات تعريف اللاعبين، وجلسات اللعب،
                                 والنتائج، ومكافآت الدخول اليومي.</li>
+                            <li><strong>إدارة الحسابات وتوثيق الفئات</strong>: تمكينك اختياريًا من حفظ ملفك الشخصي ومزامنة إنجازاتك.</li>
                             <li><strong>مسح رموز QR لاستيراد الفئات محليًا</strong>:
                                 استخدام الكاميرا لمسح رموز QR واستيراد فئات الكلمات المخصصة محليًا وبشكل فوري على جهازك دون جمع أو حفظ أو نقل أي صور أو تسجيلات.</li>
                             <li><strong>الحفاظ على استقرار التطبيق</strong> من
@@ -190,15 +181,12 @@
                     <div class="section-block">
                         <h2>4. تخزين البيانات والأمان</h2>
                         <ul>
-                            <li><strong>نهج التخزين المحلي أولاً</strong>: جميع
-                                بيانات اللعبة الخاصة بك مخزنة
-                                <strong>حصريًا على جهازك</strong>. نحن لا ندير
-                                حسابات مستخدمين ولا نقوم بتخزين بياناتك الشخصية
-                                على أي خادم بعيد.
+                            <li><strong>نهج التخزين المحلي أولاً</strong>: الغالبية العظمى من
+                                بيانات اللعبة وصور الفئات مخزنة
+                                <strong>محليًا وحصريًا على جهازك</strong>.
                             </li>
-                            <li><strong>تدابير الأمان</strong>: ننفذ تدابير فنية
-                                معقولة لحماية البيانات التي تتم معالجتها بواسطة
-                                خدمات الطرف الثالث لدينا.</li>
+                            <li><strong>أمان الحسابات السحابية</strong>: يتم تخزين بيانات المصادقة السحابية المشفرة عبر خدمات Google Firebase الآمنة.</li>
+                            <li><strong>تدابير الأمان والتشفير</strong>: يتم نقل جميع البيانات عبر اتصالات مشفرة وآمنة بتقنية HTTPS / TLS لحماية خصوصيتك.</li>
                         </ul>
                     </div>
 
@@ -218,7 +206,7 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>Google AdMob</strong></td>
-                                        <td>عرض الإعلانات</td>
+                                        <td>عرض الإعلانات وقياس الأداء</td>
                                         <td><a href="https://policies.google.com/privacy"
                                                 target="_blank"
                                                 rel="noopener noreferrer">policies.google.com/privacy</a>
@@ -235,8 +223,8 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Google Firebase
-                                                Analytics</strong></td>
-                                        <td>تحليلات الاستخدام</td>
+                                                (Auth, Analytics, Firestore)</strong></td>
+                                        <td>المصادقة، التحليلات، ومزامنة الغرف والفئات العامة</td>
                                         <td><a href="https://firebase.google.com/support/privacy"
                                                 target="_blank"
                                                 rel="noopener noreferrer">firebase.google.com/support/privacy</a>
@@ -268,14 +256,15 @@
                     </div>
 
                     <div class="section-block">
-                        <h2>7. حقوقك وخياراتك</h2>
+                        <h2>7. حقوقك وخياراتك وحذف البيانات</h2>
                         <ul>
+                            <li><strong>حذف الحساب والبيانات (Account & Data Deletion)</strong>:
+                                يحق للمستخدم حذف حسابه وجميع البيانات المرتبطة به في أي وقت مباشرةً من داخل التطبيق عبر: <strong>الإعدادات ➔ الحساب ➔ حذف الحساب</strong>، أو عبر تقديم طلب حذف الحساب من خلال الرابط المخصص: <a href="https://kamalayman.is-a.dev/kd-studios/coptic-bakasa/delete-account/" target="_blank" rel="noopener noreferrer">صفحة طلب حذف الحساب</a>. عند حذف الحساب، يتم حذف معرّف الحساب وكافة بياناتك السحابية فورًا وبشكل نهائي.
+                            </li>
                             <li><strong>إدارة الأذونات</strong>: يمكنك إلغاء
                                 أذونات الكاميرا أو الإشعارات في أي وقت
                                 من خلال إعدادات جهازك.</li>
-                            <li><strong>حذف بياناتك</strong>: يمكنك مسحها في أي
-                                وقت عن طريق مسح بيانات التطبيق أو إلغاء تثبيته.
-                            </li>
+                            <li><strong>حذف البيانات المحلية</strong>: يمكنك مسح بيانات اللعبة المخزنة محليًا في أي وقت عن طريق مسح بيانات التطبيق أو إلغاء تثبيته.</li>
                             <li><strong>إلغاء الاشتراك في التحليلات</strong>:
                                 يمكنك تقييد تتبع
                                 الإعلانات من خلال إعدادات الخصوصية بجهازك.</li>
@@ -295,7 +284,7 @@
                         <div class="contact-info">
                             <p><strong>KD Studios</strong></p>
                             <p><strong>البريد الإلكتروني</strong>: <a
-                                    href="mailto:dkstudios255@gmail.com">dkstudios255@gmail.com</a>
+                                    href="mailto:kdstudios522@gmail.com">kdstudios522@gmail.com</a>
                             </p>
                         </div>
                     </div>
@@ -323,20 +312,16 @@
                     <div class="section-block">
                         <h2>2. Information We Collect</h2>
 
-                        <h3>A. Information You Provide</h3>
-                        <p>All player data is stored <strong>locally on your
-                                device</strong> and is never transmitted to our
-                            servers:</p>
+                        <h3>A. Accounts & Authentication</h3>
+                        <p>The App provides optional sign-in via Google accounts to facilitate player profile management and synchronize scores and leaderboards through Google Play Games. You can always use all game features without signing in as a "Guest".</p>
+
+                        <h3>B. Camera & Photos Permissions</h3>
                         <ul>
-                            <li><strong>Player Profiles</strong>: Names and
-                                avatars you create for game participants.</li>
-                            <li><strong>Game Preferences</strong>: Language
-                                selection, theme (light/dark mode), sound and
-                                haptic settings, timer preferences, and
-                                difficulty level.</li>
+                            <li><strong>Camera Permission</strong>: The App requests Camera permission (<code>android.permission.CAMERA</code>) <strong>solely and exclusively to scan QR codes</strong> for importing custom game categories locally in real-time. The App does not collect, record, save, or transmit any photos or video recordings through the camera to any external server. Camera permission is entirely optional and camera hardware is not strictly required (<code>android.hardware.camera</code> with <code>android:required="false"</code> is optional).</li>
+                            <li><strong>Local Photos</strong>: Any photos selected from your gallery for avatars or custom word categories are stored locally only within the App's private storage on your device and are never uploaded or transferred off the device.</li>
                         </ul>
 
-                        <h3>B. Information Collected Automatically</h3>
+                        <h3>C. Information Collected Automatically</h3>
                         <p>To maintain app quality and stability, certain
                             technical data is collected automatically:</p>
                         <ul>
@@ -352,18 +337,14 @@
                                 aggregated and does not personally identify you.
                             </li>
                             <li><strong>Advertising Data</strong>: We use
-                                <strong>Google AdMob</strong> to display ads.
-                                This service may collect your device's
-                                advertising ID.
+                                <strong>Google AdMob</strong> to display ads and support the app for free.
                             </li>
                         </ul>
 
-                        <h3>C. Device Permissions</h3>
-                        <p>The App may request the following permissions:</p>
+                        <h3>D. Other Device Permissions</h3>
                         <ul>
-                            <li><strong>Camera Permission</strong>: The App requests Camera permission (<code>android.permission.CAMERA</code>) <strong>solely to scan QR codes for importing custom game categories locally</strong>. No photos, videos, or camera recordings are collected, stored, or transmitted. Camera hardware is not strictly required (<code>android.hardware.camera</code> with <code>android:required="false"</code> is optional). Camera access is entirely optional and only requested when you actively choose to scan a category QR code.</li>
                             <li><strong>Internet Access</strong>: Required for
-                                downloading shared categories, crash reports, analytics, and serving ads.</li>
+                                downloading public categories, crash reports, analytics, optional sign-in, and serving ads.</li>
                             <li><strong>Push Notifications</strong>: Used for
                                 game reminders via <strong>Firebase Cloud
                                     Messaging</strong>. You can disable these
@@ -378,6 +359,7 @@
                             <li><strong>Provide and improve the game
                                     experience</strong>, including managing
                                 player profiles, sessions, and scores.</li>
+                            <li><strong>Account Management</strong>: Enable optional sign-in, profile management, and leaderboard synchronization.</li>
                             <li><strong>Scan QR Codes for Local Category Import</strong>:
                                 Use the device camera solely to scan QR codes in real-time for importing custom word categories locally to your device without capturing, storing, or transmitting any photos or recordings.</li>
                             <li><strong>Maintain app stability</strong> through
@@ -396,14 +378,9 @@
                     <div class="section-block">
                         <h2>4. Data Storage & Security</h2>
                         <ul>
-                            <li><strong>Local-First Approach</strong>: All your
-                                game data is stored <strong>exclusively on your
-                                    device</strong>. We do not operate user
-                                accounts and do not store your personal data on
-                                any remote server.</li>
-                            <li><strong>Security Measures</strong>: We implement
-                                reasonable technical measures to protect data
-                                processed by our third-party services.</li>
+                            <li><strong>Local-First Approach</strong>: The vast majority of your game data and custom category images are stored <strong>exclusively on your device</strong>.</li>
+                            <li><strong>Cloud Security</strong>: Authentication data is securely processed and stored by Google Firebase infrastructure.</li>
+                            <li><strong>Encryption in Transit</strong>: All data transmitted between your device and external services is encrypted in transit using industry-standard HTTPS / TLS.</li>
                         </ul>
                     </div>
 
@@ -441,8 +418,8 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Google Firebase
-                                                Analytics</strong></td>
-                                        <td>Usage analytics</td>
+                                                (Auth, Analytics, Firestore)</strong></td>
+                                        <td>Authentication, usage analytics, room sync, and public categories</td>
                                         <td><a href="https://firebase.google.com/support/privacy"
                                                 target="_blank"
                                                 rel="noopener noreferrer">firebase.google.com/support/privacy</a>
@@ -475,17 +452,14 @@
                     </div>
 
                     <div class="section-block">
-                        <h2>7. Your Rights & Choices</h2>
+                        <h2>7. Your Rights, Choices & Account Deletion</h2>
                         <ul>
+                            <li><strong>Account & Data Deletion</strong>: Users have the right to delete their account and all associated data at any time directly within the app via: <strong>Settings ➔ Account ➔ Delete Account</strong>, or by submitting an account deletion request through our dedicated deletion page: <a href="https://kamalayman.is-a.dev/kd-studios/coptic-bakasa/delete-account/" target="_blank" rel="noopener noreferrer">Account Deletion Request Page</a>. Account deletion immediately and permanently removes all your personal records.</li>
                             <li><strong>Manage Permissions</strong>: Revoke
                                 camera, notification, or other permissions
                                 anytime through your device settings.</li>
-                            <li><strong>Delete Your Data</strong>: Clear app
-                                data through your device settings or uninstall
-                                the app.</li>
-                            <li><strong>Opt Out of Analytics</strong>: Limit ad
-                                tracking through your device's privacy
-                                settings.</li>
+                            <li><strong>Delete Local Data</strong>: Clear app data through your device settings or uninstall the app to remove all local data.</li>
+                            <li><strong>Opt Out of Analytics</strong>: Limit ad tracking through your device's privacy settings.</li>
                         </ul>
                     </div>
 
@@ -503,7 +477,7 @@
                         <div class="contact-info">
                             <p><strong>KD Studios</strong></p>
                             <p><strong>Email</strong>: <a
-                                    href="mailto:dkstudios255@gmail.com">dkstudios255@gmail.com</a>
+                                    href="mailto:kdstudios522@gmail.com">kdstudios522@gmail.com</a>
                             </p>
                         </div>
                     </div>
